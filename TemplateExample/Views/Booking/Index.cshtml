@@ -1,0 +1,59 @@
+﻿@model BayviewHouse.Models.Booking_Model
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <div id="page_super_top">
+        <div id="page_top">
+            <a href="#content"><img class="scroll" src="images/scroll.png" alt="scroll"></a>
+            <div class="heading_container">
+                <h1 id="article_head">Book Your Stay</h1>
+                <h2 id="article_subhead">Bayview House</h2>
+            </div>
+            <div id="top_image">
+                <img class="imageClass" src="images/book.jpg" alt="book">
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <p class="book_top">Reserve your stay</p>
+        <hr>
+        <form class="form1">
+        @using (Html.BeginForm("AddBooking", "Booking", FormMethod.Post)) { }
+            @Html.ValidationSummary();
+            <fieldset>
+                <legend>Reserve a room</legend>
+                <div id="datecheck">
+                    @Html.Label("First Name:")<br />
+                    @Html.TextBox("FirstName")<br />
+                    @Html.Label("Last Name:")<br />
+                    @Html.TextBox("LastName")<br />
+                    @Html.Label("Email:")<br />
+                    @Html.TextBox("Email")<br />
+                    @Html.Label("Phone:")<br />
+                    @Html.TextBox("Phone")<br />
+                    @Html.LabelFor(m => m.RoomName)<br />
+                    @Html.DropDownListFor(m => m.RoomName, new SelectList((List<string>)@ViewData["RoomName"]))<br />
+                    @Html.LabelFor(m => m.ArrivalDate)<br />
+                    @Html.TextBoxFor(m => m.ArrivalDate)<br />
+                    @Html.LabelFor(m => m.DepartureDate)<br />
+                    @Html.TextBoxFor(m => m.DepartureDate)<br />
+                    @Html.LabelFor(m => m.CreditCardNumber)<br />
+                    @Html.TextBoxFor(m => m.CreditCardNumber)<br />
+                    @Html.LabelFor(m => m.SecurityNumber)<br />
+                    @Html.TextBoxFor(m => m.SecurityNumber)<br />
+                    @Html.LabelFor(m => m.CardType)<br />
+                    @Html.TextBoxFor(m => m.CardType)<br />
+                    @Html.LabelFor(m => m.ExpiryDate)<br />
+                    @Html.TextBoxFor(m => m.ExpiryDate)<br />
+                    @Html.LabelFor(m=> m.CardHolderName)<br />
+                    @Html.TextBoxFor(m => m.CardHolderName)<br />
+                <input id="Submit1" type="submit" value="Add" />
+            </div>
+
+        </fieldset>
+    </form>
+    <p class="about_text">The regular check-in times are daily from 12pm - 6pm. Please make the B&B aware if you plan to arrive outside of these hours to arrange. Breakfast is served from 7.30am weekdays and 7am weekends. Gillian’s B&B has four types of rooms available, view Our Offers page for more information.</p>
+    <hr>
+</div>

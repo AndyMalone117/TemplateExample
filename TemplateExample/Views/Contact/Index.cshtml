@@ -1,0 +1,78 @@
+﻿@model BayviewHouse.Models.ContactModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="page_super_top">
+    <div id="page_top">
+        <a href="#content"><img class="scroll" src="images/scroll.png" alt="scroll"></a>
+        <div class="heading_container">
+            <h1 id="article_head">Contacts Us</h1>
+            <h2 id="article_subhead">Bayview House</h2>
+        </div>
+        <div id="top_image">
+            <img class="imageClass" src="images/bayview.jpg" alt="bayview">
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="contact">
+        <form id="ContactForm" action="mailto:bayviewhouse@gmail.com" onsubmit="mySubmit()" method="post" enctype="text/plain">
+
+            @using (Html.BeginForm("Feedback", "Contact", FormMethod.Post))
+            {
+                <span style="color:red">
+                    @Html.ValidationSummary()
+                </span>
+                @*<p>
+                    @Html.LabelFor(c => c.Topic)<br />
+                    @Html.DropDownList(c => c.Topic)
+                </p>*@
+                <p>
+                    @Html.LabelFor(c => c.Name)<br />
+                    @Html.TextBoxFor(c => c.Name) <span>(Optional)</span>
+                </p>
+                <p>
+                    @Html.LabelFor(c => c.BookingRef)<br />
+                    @Html.TextBoxFor(c => c.BookingRef)<br />
+                </p>
+                <p>
+                    @Html.LabelFor(c => c.Email)<br />
+                    @Html.TextBoxFor(c => c.Email)
+                </p>
+                <p>
+                    @Html.LabelFor(c => c.Comments)<br />
+                    @Html.TextAreaFor(c => c.Comments, new { @rows = 4, @cols = 50 })
+                </p>
+
+                <input id="Submit1" type="submit" value="Send" />
+
+            }
+
+            <label for="type">* Feedback Topic</label><br />
+            <select name="Topic" id="type">
+                <option value="General Feedback">General Feedback</option>
+                <option value="Reservation Feedback">Reseravtion Feedback</option>
+                <option value="Tour Booking Feedback">Tour Booking Feedback</option>
+                <option value="Culinary Feedback"> Kitchen Feedback</option>
+                <option value="Other">Other</option>
+            </select><br><br />
+
+            <label for="friend">Would you recommnd us to a freind?</label><br />
+                <input type="radio" name="friend" value="Yes">Yes<br />
+                <input type="radio" name="friend" value="No">No
+            <br />
+
+            <label for="stay">Would you stay again?</label><br />
+                <input type="radio" name="stay" value="Yes">Yes<br />
+                <input type="radio" name="stay" value="No">No
+            <br />
+            <div id="buttons">
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset"><br>
+            </div>
+            </form>
+
+    </div>
+</div>
+

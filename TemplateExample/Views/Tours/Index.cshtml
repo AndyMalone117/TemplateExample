@@ -1,0 +1,190 @@
+﻿@using BayviewHouse.Models
+
+@model BayviewHouse.Models.CustomerTour_Model
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+</div>
+<div id="page_super_top">
+    <div id="page_top">
+        <a href="#content"><img class="scroll" src="images/scroll.png" alt="scroll"></a>
+        <div class="heading_container">
+            <h1 id="article_head">Tours</h1>
+            <h2 id="article_subhead">Bayview House</h2>
+        </div>
+        <div id="top_image">
+            <img class="imageClass" src="images/bayview.jpg" alt="bayview">
+        </div>
+    </div>
+</div>
+<div id="content">
+    <hr>
+    <h2 class="about_top">Book A Tour</h2>
+    <form class="form1">
+        @using (Html.BeginForm("Tours", "Tours", FormMethod.Post)) { }
+        @Html.ValidationSummary();
+
+        <fieldset>
+            <legend>Book a tour</legend>
+            <div id="datecheck">
+                @Html.LabelFor(c => c.TourName)<br />
+                @Html.DropDownListFor(c => c.TourName, new SelectList((List<string>)@ViewData["TourArea"]))<br />
+                @Html.LabelFor(c => c.NumberOfPeople)<br />
+                @Html.TextBoxFor(c => c.NumberOfPeople)<br />
+                @Html.LabelFor(c => c.PricePerPerson)<br />
+                @Html.DisplayTextFor(c => c.PricePerPerson)<br />
+                @*@Html.LabelFor(m => m.CreditCardNumber)<br />
+                @Html.TextBoxFor(m => m.CreditCardNumber)<br />
+                @Html.LabelFor(m => m.SecurityNumber)<br />
+                @Html.TextBoxFor(m => m.SecurityNumber)<br />
+                @Html.LabelFor(m => m.CardType)<br />
+                @Html.TextBoxFor(m => m.CardType)<br />
+                @Html.LabelFor(m => m.ExpiryDate)<br />
+                @Html.TextBoxFor(m => m.ExpiryDate)<br />
+                @Html.LabelFor(m => m.CardHolderName)<br />
+                @Html.TextBoxFor(m => m.CardHolderName)<br />*@
+                <input id="Submit1" type="submit" value="Add" />
+            </div>
+
+        </fieldset>
+    </form>
+    <form class="form1">
+        <fieldset>
+            <div id="datecheck">
+                <label for="roomtype">Select a tour: </label>
+                <select name="roomtype" id="roomtype">
+                    <option value="Aran">Aran Islands</option>
+                    <option value="Moher">Cliffs Of Moher</option>
+                    <option value="Connemara">Connemara</option>
+                    <option value="Galway">Galway City</option>
+                </select><br>
+                <label for="in">Tour date: </label>
+                <input type="date" id="checkin" name="checkin">
+            </div>
+            <div id="people">
+                <label for="adultnumber">Adults: </label>
+                <select name="adultvalue" id="adultnumber">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="children">Children: </label>
+                <select name="childrenvalue" id="children">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <label id="requests" for="requests">Special Requests: </label>
+            <textarea></textarea><br>
+            <input type="button" id="check" value="Book Tour">
+        </fieldset>
+        <fieldset id="form2">
+            <legend>Please provide your information</legend>
+            <label for="firstname">First Name: </label><input type="text" id="fn" name="fname" placeholder="First Name">
+            <label for="surname">Surname: </label><input type="text" id="ln" name="lname" placeholder="Last Name"><br>
+            <label for="address1">Address line 1: </label><input type="text" id="address1" name="address1" placeholder="Address line 1">
+            <label for="address2">Address line 2: </label><input type="text" id="address2" name="address2" placeholder="Address line 2"><br>
+            <label for="city">City: </label><input type="text" id="city" name="city" placeholder="Address City">
+            <label for="country">Country: </label><input type="text" id="country" name="country" placeholder="Address Country"><br>
+            <label for="email">Email: </label><input type="email" id="email" name="email" placeholder="Email">
+            <label id="phone" for="phne">Phone: </label><input type="tel" id="phne" name="phone" placeholder="Phone Number"><br>
+            <input type="submit" id="complete" value="Complete" onclick="book('Your booking request has been confirmed for ***DATE RANGE*** and you will receive email verification shortly.')">
+        </fieldset>
+    </form>
+    <hr>
+    <h2 class="about_top">Tours On Offer</h2>
+    <p class="about_text">Gillian Moore B&B provides a number of discounted tours to its guests. Guests can choose to enjoy hiking over hills of Connemara, visiting the magical Cliffs of Moher, capturings the sights on the Aran Islands, or soaking up the atmosphere of Galway city. See below for further details on tours and related prices.</p>
+        <hr>
+        <h3 class="about_top">Connemara</h3>
+        <img class="about_image" src="images/tours_connemara.jpg" alt="Connemara">
+        <figcaption class="about_top">The Connemara Mountains</figcaption>
+        <p class="about_text">Connemara is a place of colours, wilderness and warm welcomes on the west coast of Ireland. From the bogs and lakes of the Gaelic speaking South Connemara, to the mountain vistas of North and West Connemara, the diversity of the landscape and the people who populate it offers much to the visitor. Heading west from Galway city, the villages of Connemara will stretch out before you like a colourful road map of communities and hidden gems just waiting to be explored. Each town or village has its own distinct character and local culture, including Oughterard, Maam, Recess, Roundstone, Cashel, Carna, Ballyconneely, Clifden, Cleggan, Claddaghduff, Letterfrack, the Renvyle peninsula and Leenane. Don’t limit yourself though—some of the most beautiful places you will see or enjoy may be off the beaten track and should be explored on foot, by bicycle or on a boat! Dotted around the rugged coastline are the islands of Connemara, some inhabited and others long since deserted, but all remote and beautiful in the wild and windswept Atlantic. Much of Connemara’s wild beauty is due to its remote location and sometimes harsh conditions, but a regular influx of visitors in the last two centuries has produced a region that is proud of its natural beauty, yet still remaining largely unspoiled.</p>
+        <table class="tours_table">
+            <tbody>
+                <tr>
+                    <td class="tour_table_title">Time: </td>
+                    <td class="tour_table_content">3 Hours</td>
+                </tr>
+                <tr>
+                    <td class="tour_table_title">Price (Adult): </td>
+                    <td class="tour_table_content">€ 20</td>
+                </tr>
+                <tr>
+                    <td class="tour_table_title">Price (Child): </td>
+                    <td class="tour_table_content">€ 12</td>
+                </tr>
+            </tbody>
+        </table>
+    <hr>
+    <h5 class="about_top">Cliffs of Moher</h5>
+    <img class="about_image" src="images/tours_moher.jpg" alt="Cliffs of Moher">
+    <figcaption class="about_top">The Cliffs of Moher</figcaption>
+    <p class="about_text">The Cliffs of Moher are Ireland’s most visited natural attraction with a magical vista that captures the hearts of up to one million visitors every year. Standing 214m (702 feet) at their highest point they stretch for 8 kilometres (5 miles) along the Atlantic coast of County Clare in the west of Ireland. From the Cliffs of Moher on a clear day one can see the Aran Islands and Galway Bay, as well as the Twelve Pins and the Maum Turk mountains in Connemara, Loop Head to the south and the Dingle Peninsula and Blasket Islands in Kerry. O’Brien’s Tower stands near the highest point and has served as a viewing point for visitors for hundreds of years</p>
+    <table class="tours_table">
+        <tbody>
+            <tr>
+                <td class="tour_table_title">Time: </td>
+                <td class="tour_table_content">4 Hours</td>
+            </tr>
+            <tr>
+                <td class="tour_table_title">Price (Adult): </td>
+                <td class="tour_table_content">€ 25</td>
+            </tr>
+            <tr>
+                <td class="tour_table_title">Price (Child): </td>
+                <td class="tour_table_content">€ 15</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h2 class="about_top">The Aran Islands</h2>
+    <figure class="tour_caption">
+        <img class="about_image" src="images/tours_aran.jpg" alt="The Aran Islands">
+        <figcaption class="about_top">The Aran Islands</figcaption>
+    </figure>
+    <p class="about_text">The Aran Islands are a group of three islands on the west coast of Ireland in the middle of the Wild Atlantic Way. It is more than just a holiday destination with accommodation for all budgets including Camping, Hostels, Bed and Breakfasts, and Hotels. The islands are at the mouth of Galway Bay, in County Galway but are also accessible from Doolin which is beside the Cliffs of Moher in County Clare. The Three Islands are made of Limestone and resemble the landscape of the Burren. They are The 1,200 residents primarily speak Irish, but are also fluent in English. The names of the Aran Islands are: Inis Mor (Inishmore), Inis Meain (Inishmaan), and Inis Oirr (Inisheer) and here you will find the traditional Irish way of life. The “largest” is Inishmore — characterized by numerous important Celtic Monuments and churches, miles of stone walls, abundant wildlife and 8kms of Cliffs. Dun Aonghas is the most prominent fort which is located on 300 foot cliffs. Most people who visit hire bikes and cycle around the island exploring the various sights. Inishmore has recently been appointed a venue for the Red Bull Cliff Diving competition and has numerous quirky festivals throughout the year such as the Father Ted Festival in February. You will also find year round Traditional Irish Music in the local pubs. The other islands, Inishmaan and Inisheer, are even smaller, much less populated, and less touristic.</p>
+    <table class="tours_table">
+        <tbody>
+            <tr>
+                <td class="tour_table_title">Time: </td>
+                <td class="tour_table_content">5 Hours</td>
+            </tr>
+            <tr>
+                <td class="tour_table_title">Price (Adult): </td>
+                <td class="tour_table_content">€ 50</td>
+            </tr>
+            <tr>
+                <td class="tour_table_title">Price (Child): </td>
+                <td class="tour_table_content">€ 25</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h5 class="about_top">Galway City</h5>
+    <img class="about_image" src="images/tours_city.jpg" alt="Galway City">
+    <figcaption class="about_top">Galway City Centre</figcaption>
+    <p class="about_text">Galway City is a thriving, bohemian, cultural city on the western coast of Ireland. Along with being a popular seaside destination with beautiful beaches and long winding promenade, it also has a buzzing cosmopolitan city centre. The city is a joy to explore with its labyrinthine cobbled streets, colourful shop facades and busy café/ bar culture.  The city is also well known for its many festivals throughout the year with huge crowds gathering for the annual Galway Arts Festival, Races and numerous other events. Old Ireland is present too with turf fires and traditional music featuring in many pubs to compliment your enjoyment of a well earned pint of Guinness. Take an evening stroll along the promenade and watch the sunset over Galway Bay or watch the salmon fishermen in the River Corrib from the perfect vantage point of the Salmon Weir Bridge. A visit to Galway City Museum or the National Aquarium will easily happily fill a wet afternoon. On sunny days your options are endless. The clean beaches in Salthill draw crowds of swimmers and the city streets come to life with buskers and street performers. With Connemara on your doorstep a visit to Kylemore Abbey or Ashford Castle while taking in the magnificent mountains and lakes of Connemara National Park on your way is also highly recommended. The unspoilt Burren region across Galway Bay in Clare is also worth a visit. The weathered limestone landscape holds traces of the past with megalithic tombs, ringforts, cairns, holy wells, souterrains and stone walls scattered throughout the area to explore.</p>
+    <table class="tours_table">
+        <tbody>
+            <tr>
+                <td class="tour_table_title">Time: </td>
+                <td class="tour_table_content">1 Hour</td>
+            </tr>
+            <tr>
+                <td class="tour_table_title">Price (Adult): </td>
+                <td class="tour_table_content">€ 10</td>
+            </tr>
+            <tr>
+                <td class="tour_table_title">Price (Child): </td>
+                <td class="tour_table_content">€ 5</td>
+            </tr>
+        </tbody>
+    </table>
+    </section>
+</div>
+

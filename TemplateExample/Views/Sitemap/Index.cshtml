@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="page_super_top">
+    <div id="page_top">
+        <a href="#content"><img class="scroll" src="images/scroll.png" alt="scroll"></a>
+        <div class="heading_container">
+            <h1 id="article_head">Bayview House</h1>
+            <h2 id="article_subhead">Bed and Breakfast</h2>
+        </div>
+        <div id="top_image">
+            <img class="imageClass" src="images/bayview.jpg" alt="bayview">
+        </div>
+    </div>
+</div>
+<div id="content">
+    <p class="about_top">Bayview House Site Map</p>
+    <hr>
+    <ul class="sitelist">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Offers", "Index", "Offers")</li>
+        <li>@Html.ActionLink("Booking", "Index", "Booking")</li>
+        <li>@Html.ActionLink("Activities", "Index", "Activities")</li>
+        <li>@Html.ActionLink("Location", "Index", "Location")</li>
+        <li>@Html.ActionLink("Tours", "Index", "Tours")</li>
+        <li>@Html.ActionLink("Contact Us", "Index", "Contact")</li>
+        <li>@Html.ActionLink("FAQ", "Index", "Faq")</li>
+    </ul>
+</div>
