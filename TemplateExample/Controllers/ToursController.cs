@@ -14,6 +14,7 @@ namespace BayviewHouse.Controllers
         public ActionResult Index()
         {
             ViewData["TourArea"] = GetTourTitles();
+            ViewData["PricePerPerson"] = GetTourPrices();
             return View();
         }
         private List<Tour_Model> GetTours()
@@ -26,14 +27,25 @@ namespace BayviewHouse.Controllers
 
         private List<string> GetTourTitles()
         {
-            List<string> courseTitles = new List<string>();
-            List<Tour_Model> courses = GetTours();
-            foreach (Tour_Model c in courses)
+            List<string> tourTitles = new List<string>();
+            List<Tour_Model> tours = GetTours();
+            foreach (Tour_Model c in tours)
             {
-                courseTitles.Add(c.TourArea);
+                tourTitles.Add(c.TourArea);
             }
 
-            return courseTitles;
+            return tourTitles;
         }
-}
+        private List<string> GetTourPrices()
+        {
+            List<string> tourPrices = new List<string>();
+            List<Tour_Model> prices = GetTours();
+            foreach (Tour_Model c in prices)
+            {
+                tourPrices.Add(c.PricePerPerson.ToString());
+            }
+
+            return tourPrices;
+        }
+    }
 }

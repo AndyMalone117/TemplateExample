@@ -35,7 +35,7 @@ namespace BayviewHouse.Models
 
         public void Price()
         {
-            TotalPrice = NumberOfPeople * PricePerPerson;
+            TotalPrice = PricePerPerson * NumberOfPeople;
         }
     }
 }
