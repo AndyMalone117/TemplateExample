@@ -23,6 +23,7 @@ namespace BayviewHouse.Controllers
         [HttpGet]
         public ActionResult AddBooking()
         {
+
             return View();
         }
 
