@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<h2>Staff Page<span style="float:right; padding-right:5em;">@Session["Name"], you are logged in</span><br /></h2>
+
+<p>@Html.ActionLink("Show User Feedback", "ShowFeedback", "Contact")</p>
+<p>@Html.ActionLink("Show Bookings", "ShowBookings", "Bookings")</p>
+
+
+
