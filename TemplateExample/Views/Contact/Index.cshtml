@@ -17,8 +17,7 @@
 </div>
 <div id="content">
     <div id="contact">
-        <form id="ContactForm">
-            @using (Html.BeginForm("Feedback", "Contact", FormMethod.Post))
+            @using (Html.BeginForm("Contact", "Contact", FormMethod.Post))
             {
                 <span style="color:red">
                     @Html.ValidationSummary()
@@ -44,9 +43,6 @@
                     @Html.TextAreaFor(c => c.Comments, new { @rows = 4, @cols = 50 })
                 </p>
 
-                <input id="Submit1" type="Submit" value="Send" />
-                
-            }
 
             <label for="type">* Feedback Topic</label><br />
             <select name="Topic" id="type">
@@ -57,21 +53,22 @@
                 <option value="Other">Other</option>
             </select><br><br />
 
-            <label for="friend">Would you recommnd us to a freind?</label><br />
-                <input type="radio" name="friend" value="Yes">Yes<br />
-                <input type="radio" name="friend" value="No">No
-            <br />
+            <p>
+                <label for="Stay">Would you stay again?</label>
+                @Html.RadioButtonFor(c => c.Stay, "Yes") Yes
+                @Html.RadioButtonFor(c => c.Stay, "No") No
+            </p>
+            <p>
+                <label for="Stay">Would you Recommend Bayview House  to a freind?</label>
+                @Html.RadioButtonFor(c => c.Recommend, "Yes") Yes
+                @Html.RadioButtonFor(c => c.Recommend, "No") No
+            </p>
 
-            <label for="stay">Would you stay again?</label><br />
-                <input type="radio" name="stay" value="Yes">Yes<br />
-                <input type="radio" name="stay" value="No">No
-            <br />
-            <div id="buttons">
-                <input type="submit" value="Send">
-                <input type="reset" value="Reset"><br>
-            </div>
-            </form>
 
+            <input id="Submit" type="submit" value="Send" />
+
+            }
+  
     </div>
 </div>
 

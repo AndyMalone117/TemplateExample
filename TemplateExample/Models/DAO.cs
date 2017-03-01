@@ -121,9 +121,9 @@ namespace BayviewHouse.Models
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspInsertIntoBooking", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Booking", booking.BookingID);
             cmd.Parameters.AddWithValue("@RoomId", booking.RoomID);
-            cmd.Parameters.AddWithValue("@CustomerId", booking.CustomerID);
+            cmd.Parameters.AddWithValue("@Email", booking.Email);
+            cmd.Parameters.AddWithValue("@RoomName", booking.RoomName);
             cmd.Parameters.AddWithValue("@ArrivalDate", booking.ArrivalDate);
             cmd.Parameters.AddWithValue("@DepartureDate", booking.DepartureDate);
             cmd.Parameters.AddWithValue("@CardHolderName", booking.CardHolderName);

@@ -12,7 +12,11 @@ namespace BayviewHouse.Models
     {
         public int BookingID { get; set; }
         public int RoomID { get; set; }
-        public int CustomerID { get; set; }
+        //MW added this 3/1/2017 5pm to remove error
+        public string Email { get; set; }
+
+        [Display(Name = "Room Name")]
+        public string RoomName { get; set; }
 
         [Display(Name = "Arrival Date")]
         [DataType(DataType.Date)]
@@ -37,15 +41,14 @@ namespace BayviewHouse.Models
         [Display(Name = "Card Holder Name")]
         public string CardHolderName { get; set; }
 
-        [Display(Name = "Room Name")]
-        public string RoomName { get; set; }
+    
 
         public Booking_Model() { }
-        public Booking_Model(int bookingID, int roomID, int customerID, string roomName, DateTime arrivalDate, DateTime departureDate, string cardType, string creditCardNumber, DateTime expiryDate , string cardHolderName ,int securityNumber)
+        public Booking_Model(int bookingID, int roomID, string email, string roomName, DateTime arrivalDate, DateTime departureDate, string cardType, string creditCardNumber, DateTime expiryDate , string cardHolderName ,int securityNumber)
         {
             BookingID = bookingID;
             RoomID = roomID;
-            CustomerID = customerID;
+            Email = email;
             RoomName = roomName;
             ArrivalDate = arrivalDate;
             DepartureDate = departureDate;

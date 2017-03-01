@@ -185,6 +185,7 @@
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\Status.cshtml" />
+    <Content Include="Views\Contact\Comments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
