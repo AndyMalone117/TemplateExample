@@ -17,8 +17,7 @@
 </div>
 <div id="content">
     <div id="contact">
-        <form id="ContactForm">
-            @using (Html.BeginForm("Feedback", "Contact", FormMethod.Post))
+            @using (Html.BeginForm("Contact", "Contact", FormMethod.Post))
             {
                 <span style="color:red">
                     @Html.ValidationSummary()
@@ -44,9 +43,9 @@
                     @Html.TextAreaFor(c => c.Comments, new { @rows = 4, @cols = 50 })
                 </p>
 
-                <input id="Submit1" type="Submit" value="Send" />
                 
-            }
+
+
 
             <label for="type">* Feedback Topic</label><br />
             <select name="Topic" id="type">
@@ -57,6 +56,9 @@
                 <option value="Other">Other</option>
             </select><br><br />
 
+            <input id="Submit" type="submit" value="Send" />
+
+            }
             <label for="friend">Would you recommnd us to a freind?</label><br />
                 <input type="radio" name="friend" value="Yes">Yes<br />
                 <input type="radio" name="friend" value="No">No
@@ -70,7 +72,7 @@
                 <input type="submit" value="Send">
                 <input type="reset" value="Reset"><br>
             </div>
-            </form>
+            
 
     </div>
 </div>

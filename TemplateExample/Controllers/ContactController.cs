@@ -41,7 +41,7 @@ namespace BayviewHouse.Controllers
             return View();
         }
 
-        public ActionResult Feedback(ContactModel model)
+        public ActionResult Contact (ContactModel model)
         {
             if (ModelState.IsValid)
             {

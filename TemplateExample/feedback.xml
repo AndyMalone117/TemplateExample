@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<user_comments>
+  <user_comment>
+    <name>Michael</name>
+    <email>michaelrwalsh@yahoo.ie</email>
+    <bookingRef>Walsh</bookingRef>
+    <topic>Reservation Feedback</topic>
+    <comments>Test</comments>
+  </user_comment>
+  <user_comment>
+    <name>Michael</name>
+    <email>michaelrwalsh@yahoo.ie</email>
+    <bookingRef>123456</bookingRef>
+    <topic>General Feedback</topic>
+    <comments>Test</comments>
+  </user_comment>
+</user_comments>
