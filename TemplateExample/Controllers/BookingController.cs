@@ -36,15 +36,26 @@ namespace BayviewHouse.Controllers
         [HttpPost]
         public ActionResult AddBooking(Booking_Model booking)
         {
-            //int count = 0;
+            ViewData["RoomName"] = GetRoomNamesList();
+
             if (ModelState.IsValid)
             {
-                ViewData["message"] = "Record inserted";
+                ViewData["message"] = "Record inserted successfully";
                 return View("Index");
             }
-            else
-                return View("Index", booking);
+            else return View("Index", booking);
+               
+
+            }
+
+            ////int count = 0;
+            //if (ModelState.IsValid)
+            //{
+            //    ViewData["message"] = "Record inserted";
+            //    return View("Index");
+            //}
+            //else
+            //    return View("Index", booking);
         }
    
-    }
 }

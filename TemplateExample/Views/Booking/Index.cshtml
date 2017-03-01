@@ -25,20 +25,16 @@
             <fieldset>
                 <legend>Reserve a room</legend>
                 <div id="datecheck">
-                    @Html.Label("First Name:")<br />
-                    @Html.TextBox("FirstName")<br />
-                    @Html.Label("Last Name:")<br />
-                    @Html.TextBox("LastName")<br />
                     @Html.Label("Email:")<br />
                     @Html.TextBox("Email")<br />
-                    @Html.Label("Phone:")<br />
-                    @Html.TextBox("Phone")<br />
                     @Html.LabelFor(m => m.RoomName)<br />
                     @Html.DropDownListFor(m => m.RoomName, new SelectList((List<string>)@ViewData["RoomName"]))<br />
                     @Html.LabelFor(m => m.ArrivalDate)<br />
                     @Html.TextBoxFor(m => m.ArrivalDate)<br />
                     @Html.LabelFor(m => m.DepartureDate)<br />
                     @Html.TextBoxFor(m => m.DepartureDate)<br />
+                    @Html.LabelFor(m => m.CardHolderName)<br />
+                    @Html.TextBoxFor(m => m.CardHolderName)<br />
                     @Html.LabelFor(m => m.CreditCardNumber)<br />
                     @Html.TextBoxFor(m => m.CreditCardNumber)<br />
                     @Html.LabelFor(m => m.SecurityNumber)<br />
@@ -47,8 +43,7 @@
                     @Html.TextBoxFor(m => m.CardType)<br />
                     @Html.LabelFor(m => m.ExpiryDate)<br />
                     @Html.TextBoxFor(m => m.ExpiryDate)<br />
-                    @Html.LabelFor(m => m.CardHolderName)<br />
-                    @Html.TextBoxFor(m => m.CardHolderName)<br />
+
                 <input id="Submit1" type="submit" value="Add" />
             </div>
         </fieldset>
