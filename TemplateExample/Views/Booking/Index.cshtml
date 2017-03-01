@@ -19,7 +19,7 @@
     <div id="content">
         <p class="book_top">Reserve your stay</p>
         <hr>
-        @using (Html.BeginForm("AddBooking", "Booking", FormMethod.Post))
+        @using (Html.BeginForm("Booking", "Booking", FormMethod.Post))
         {
             @Html.ValidationSummary();
             <fieldset>

@@ -21,7 +21,7 @@ namespace BayviewHouse.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult AddBooking()
+        public ActionResult Booking()
         {
             return View();
         }
@@ -34,28 +34,22 @@ namespace BayviewHouse.Controllers
             return rooms;
         }
         [HttpPost]
-        public ActionResult AddBooking(Booking_Model booking)
+        public ActionResult Booking(Booking_Model booking)
         {
             ViewData["RoomName"] = GetRoomNamesList();
-
+            int count = 0;
             if (ModelState.IsValid)
             {
-                ViewData["message"] = "Record inserted successfully";
+                count = dao.InsertBooking(booking);
+                if (count == 1)
+                    ViewData["message"] = "Record inserted successfully";
+                else
+                    ViewData["message"] = dao.message;
                 return View("Index");
-            }
-            else return View("Index", booking);
-               
 
             }
 
-            ////int count = 0;
-            //if (ModelState.IsValid)
-            //{
-            //    ViewData["message"] = "Record inserted";
-            //    return View("Index");
-            //}
-            //else
-            //    return View("Index", booking);
+            else return View("AddCourse", booking);
         }
-   
+    }
 }

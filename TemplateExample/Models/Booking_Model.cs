@@ -10,8 +10,7 @@ namespace BayviewHouse.Models
 {
     public class Booking_Model
     {
-        public int BookingID { get; set; }
-        public int RoomID { get; set; }
+        //public int BookingID { get; set; }
         //MW added this 3/1/2017 5pm to remove error
         public string Email { get; set; }
 
@@ -24,6 +23,11 @@ namespace BayviewHouse.Models
         [Display(Name = "Departure Date")]
         [DataType(DataType.Date)]
         public DateTime? DepartureDate { get; set; }
+        [Display(Name = "Card Holder Name")]
+
+        public string CardHolderName { get; set; }
+        [Display(Name = "Card Type")]
+        public string CardType { get; set; }
 
         [Display(Name = "Card Number")]
         public string CreditCardNumber { get; set; }
@@ -32,22 +36,16 @@ namespace BayviewHouse.Models
         [DataType(DataType.Date)]
         public DateTime ExpiryDate { get; set; }
 
-        [Display(Name = "Card Type")]
-        public string CardType { get; set; }
-
         [Display(Name = "CVV")]
         public int SecurityNumber { get; set; }
 
-        [Display(Name = "Card Holder Name")]
-        public string CardHolderName { get; set; }
 
     
 
         public Booking_Model() { }
-        public Booking_Model(int bookingID, int roomID, string email, string roomName, DateTime arrivalDate, DateTime departureDate, string cardType, string creditCardNumber, DateTime expiryDate , string cardHolderName ,int securityNumber)
+        public Booking_Model(/*int bookingID,*/ string email, string roomName, DateTime arrivalDate , DateTime departureDate, string cardHolderName, string cardType, string creditCardNumber, DateTime expiryDate ,int securityNumber)
         {
-            BookingID = bookingID;
-            RoomID = roomID;
+            //BookingID = bookingID;
             Email = email;
             RoomName = roomName;
             ArrivalDate = arrivalDate;
