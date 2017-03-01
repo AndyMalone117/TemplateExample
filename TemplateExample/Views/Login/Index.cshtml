@@ -1,0 +1,45 @@
+﻿@model BayviewHouse.Models.LoginModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content" style="padding-left:2em;  padding-bottom:15em; padding-top:5em;">
+
+    <h2>BayView Management Login Page</h2>
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                <span style="color:red">
+                    @Html.ValidationSummary()
+                </span>
+                <p>
+                    @Html.LabelFor(m => m.Email)<br />
+                    @Html.TextBoxFor(m => m.Email)
+                </p>
+
+                <p>
+                    @Html.LabelFor(m => m.Password)<br />
+                    @Html.PasswordFor(m => m.Password)
+                </p>
+                @Html.LabelFor(m => m.UserRole)<br />
+                @Html.DropDownListFor(m => m.UserRole, new List<SelectListItem>
+                    {
+                        new SelectListItem() { Text = "Staff", Value="Staff"},
+                        new SelectListItem() {Text = "Customer", Value="Customer"},
+                       
+                        })
+                
+                    
+                    <input id="Submit1" type="submit" value="Login" />
+                 
+                
+                
+                
+
+
+            }
+
+        </div>
+
