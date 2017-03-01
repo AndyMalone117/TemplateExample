@@ -36,18 +36,14 @@ namespace BayviewHouse.Controllers
         [HttpPost]
         public ActionResult AddBooking(Booking_Model booking)
         {
-            int count = 0;
+            //int count = 0;
             if (ModelState.IsValid)
             {
-                count = dao.InsertBooking(booking);
-                if (count == 1)
-                    ViewData["message"] = "Record inserted";
-                else
-                    ViewData["message"] = dao.message;
+                ViewData["message"] = "Record inserted";
                 return View("Index");
             }
             else
-                return View("AddBooking", booking);
+                return View("Index", booking);
         }
    
     }
