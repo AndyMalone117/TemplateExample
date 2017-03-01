@@ -28,6 +28,13 @@ namespace BayviewHouse.Models
 
         [Required(ErrorMessage = "Answer Required")]
         public string Recommend { get; set; }
-        public DateTime Time { get; set; }
+        //public DateTime Time { get; set; }
+
+        private DateTime? dateCreated;
+        public DateTime Time
+        {
+            get { return dateCreated ?? DateTime.Now; }
+            set { dateCreated = value; }
+        }
     }
 }

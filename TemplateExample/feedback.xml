@@ -1,24 +1,23 @@
 <?xml version="1.0" standalone="yes"?>
 <user_comments>
   <user_comment>
-    <name>Michael</name>
+    <name>Michael Walsh</name>
     <email>michaelrwalsh@yahoo.ie</email>
-    <bookingRef>Walsh</bookingRef>
-    <topic>Reservation Feedback</topic>
-    <comments>Test</comments>
-  </user_comment>
-  <user_comment>
-    <name>Michael</name>
-    <email>michaelrwalsh@yahoo.ie</email>
-    <bookingRef>123456</bookingRef>
-    <topic>General Feedback</topic>
-    <comments>Test</comments>
-  </user_comment>
-  <user_comment>
-    <name>Mary Test</name>
-    <email>abcd@gmail.com</email>
     <bookingRef>AB123456</bookingRef>
     <topic>Reservation Feedback</topic>
-    <comments>Thank you....perfect website</comments>
+    <comments>Test</comments>
+    <stayAgain>Yes</stayAgain>
+    <recommend>No</recommend>
+    <date>1/1/0001 12:00:00 AM</date>
+  </user_comment>
+  <user_comment>
+    <name>Michael Walsh</name>
+    <email>michaelrwalsh@yahoo.ie</email>
+    <bookingRef>AB123456</bookingRef>
+    <topic>Other</topic>
+    <comments>This is a test</comments>
+    <stayAgain>Yes</stayAgain>
+    <recommend>Yes</recommend>
+    <date>3/1/2017 7:30:18 PM</date>
   </user_comment>
 </user_comments>
