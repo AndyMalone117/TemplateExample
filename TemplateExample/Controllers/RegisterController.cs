@@ -26,14 +26,13 @@ namespace BayviewHouse.Controllers
             {
                 if (customer.Password != customer.PasswordConfirm)
                 {
-                    ViewData["status"] = "Passwords do not match";
+                    ViewData["status"] = "Password Enter Does not Match";
                 }
                 else
                 {
-
                     count = dao.InsertCustomer(customer);
                     if (count > 0)
-                        ViewData["status"] = "Customer record is created sccessfully";
+                        ViewData["status"] = "Registration Successfull";
                     else
                         ViewData["status"] = "Error: " + dao.message;
                 }
