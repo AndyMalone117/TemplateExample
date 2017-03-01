@@ -11,13 +11,15 @@ namespace BayviewHouse.Controllers
        
         static DataSet ds;
         static DataTable dt;
+        static DateTime td;
+        
 
         // GET: ContactUs
         public ActionResult Index()
         {
             if (System.IO.File.Exists(Server.MapPath(@"~/feedback.xml")))
             {
-
+                td = DateTime.Now;
                 ds = new DataSet();
 
                 ds.ReadXml(Server.MapPath(@"~/feedback.xml"));
@@ -34,6 +36,9 @@ namespace BayviewHouse.Controllers
                 dt.Columns.Add("bookingRef");
                 dt.Columns.Add("topic");
                 dt.Columns.Add("comments");
+                dt.Columns.Add("stay_again");
+                dt.Columns.Add("recommend");
+                dt.Columns.Add("date");
                 ds.Tables.Add(dt);
 
             }
@@ -54,6 +59,9 @@ namespace BayviewHouse.Controllers
                     row["bookingRef"] = model.BookingRef;
                     row["topic"] = model.Topic;
                     row["comments"] = model.Comments;
+                    row["stay"] = model.Stay;
+                    row["recommend"] = model.Recommend;
+                    row["Date"] = model.Time;
                 
 
                 dt.Rows.Add(row);

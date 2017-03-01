@@ -14,4 +14,11 @@
     <topic>General Feedback</topic>
     <comments>Test</comments>
   </user_comment>
+  <user_comment>
+    <name>Mary Test</name>
+    <email>abcd@gmail.com</email>
+    <bookingRef>AB123456</bookingRef>
+    <topic>Reservation Feedback</topic>
+    <comments>Thank you....perfect website</comments>
+  </user_comment>
 </user_comments>

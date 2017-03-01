@@ -16,7 +16,7 @@ namespace BayviewHouse.Models
         //MW added this 3/1/2017 5pm to remove error
         public string Email { get; set; }
 
-        public string Email { get; set; }
+        
 
         [Display(Name = "Arrival Date")]
         [DataType(DataType.Date)]
