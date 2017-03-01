@@ -55,9 +55,9 @@ namespace BayviewHouse.Models
             Connection();
             SqlCommand cmd = new SqlCommand("uspInsertIntoCustomer", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@first", c.FirstName);
-            cmd.Parameters.AddWithValue("@last", c.LastName);
             cmd.Parameters.AddWithValue("@email", c.Email);
+            cmd.Parameters.AddWithValue("@first", c.FirstName);
+            cmd.Parameters.AddWithValue("@last", c.LastName);            
             cmd.Parameters.AddWithValue("@phone", c.Phone);
             cmd.Parameters.AddWithValue("@pass", c.Password);
             try

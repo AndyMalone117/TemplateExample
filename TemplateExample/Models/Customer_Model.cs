@@ -8,6 +8,11 @@ namespace BayviewHouse.Models
 {
     public class Customer_Model
     {
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Email Required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
+
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "First Name is required")]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "First Name must contain alphabets")]
@@ -17,11 +22,6 @@ namespace BayviewHouse.Models
         [Required(ErrorMessage = "Last Name is required")]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Last Name must contain alphabets")]
         public string LastName { get; set; }
-
-        [Display(Name = "Email")]
-        [Required(ErrorMessage = "Email Required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
-        public string Email { get; set; }
 
         [Display(Name = "Phone")]
         [Required(ErrorMessage = "Phone number required")]

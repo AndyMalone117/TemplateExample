@@ -23,24 +23,19 @@
         @Html.LabelFor(m => m.Email)<br />
         @Html.TextBoxFor(m => m.Email)
     </p>
-        <p>
-            @Html.LabelFor(m => m.Phone)<br />
-            @Html.PasswordFor(m => m.Phone)
-        </p>
+    <p>
+        @Html.LabelFor(m => m.Phone)<br />
+        @Html.TextBoxFor(m => m.Phone)
+    </p>
 
-        <p>
-            @*@Html.LabelFor(m => m.Password)<br />
-                @Html.PasswordFor(m => m.Password)*@
-            @Html.Label("Password")
-            @Html.TextBox("txtPassword")
-        </p>
-        <p>
-            @*@Html.LabelFor(m => m.PasswordConfirm)<br />
-                @Html.PasswordFor(m => m.PasswordConfirm)*@
-            @Html.Label("Match Password")
-            @Html.TextBox("txtMatch")
-        </p>
-
+    <p>
+        @Html.LabelFor(m => m.Password)<br />
+        @Html.PasswordFor(m => m.Password)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.PasswordConfirm)<br />
+        @Html.PasswordFor(m => m.PasswordConfirm)            
+    </p>
         <input id="Submit1" type="submit" value="Register" />
 
 }
