@@ -26,30 +26,28 @@ namespace BayviewHouse.Models
         [Display(Name = "Phone")]
         [Required(ErrorMessage = "Phone number required")]
         public string Phone { get; set; }
-
-
-        //[DataType(DataType.Password)]
-        //[Required(ErrorMessage = "The password address is required")]
-        //[StringLength(10, ErrorMessage = "Password must contain 5 to 10 characters", MinimumLength = 5)]
+        
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Password Required")]
+        [StringLength(10, ErrorMessage = "Password must contain 5 to 10 characters", MinimumLength = 5)]
         public string Password { get; set; }
 
-        //[DataType(DataType.Password)]
-        //[Display(Name = "Confirm Password")]
-        //[Required]
-        //[Compare("Password")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm Password")]
+        [Required(ErrorMessage = "Confirm Password")]
+        [Compare("Password")]
         public string PasswordConfirm { get; set; }
-
 
         public Customer_Model() { }
 
-        public Customer_Model(int customerID, string firstName, string lastName, string email, string phone, string password)
+        public Customer_Model(string firstName, string lastName, string email, string phone, string password, string passwordConfirm)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Phone = phone;
             Password = password;
-
+            PasswordConfirm = passwordConfirm;
         }
     }
 }

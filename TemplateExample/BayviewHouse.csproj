@@ -126,6 +126,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Web.config" />
+    <Content Include="contactResult.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
