@@ -181,10 +181,11 @@
     <Content Include="Views\Staff\Index.cshtml" />
     <Content Include="Views\Login\Error.cshtml" />
     <Content Include="Views\Shared\Login.cshtml" />
-    <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\Status.cshtml" />
     <Content Include="Views\Contact\Comments.cshtml" />
+    <Content Include="Views\Contact\Feedback.cshtml" />
+    <Content Include="Views\Contact\Bookings.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
