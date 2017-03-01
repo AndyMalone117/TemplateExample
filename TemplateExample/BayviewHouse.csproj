@@ -181,6 +181,7 @@
     <Content Include="Views\Login\Error.cshtml" />
     <Content Include="Views\Shared\Login.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
+    <Content Include="Views\Feedback\Comments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

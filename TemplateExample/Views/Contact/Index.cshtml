@@ -18,7 +18,6 @@
 <div id="content">
     <div id="contact">
         <form id="ContactForm">
-
             @using (Html.BeginForm("Feedback", "Contact", FormMethod.Post))
             {
                 <span style="color:red">
@@ -45,8 +44,8 @@
                     @Html.TextAreaFor(c => c.Comments, new { @rows = 4, @cols = 50 })
                 </p>
 
-                <input id="Submit1" type="submit" value="Send" />
-
+                <input id="Submit1" type="Submit" value="Send" />
+                
             }
 
             <label for="type">* Feedback Topic</label><br />

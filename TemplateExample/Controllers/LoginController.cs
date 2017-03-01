@@ -16,6 +16,7 @@ namespace BayviewHouse.Controllers
         {
             return View();
         }
+
         public ActionResult Status()
         {
             return View();
