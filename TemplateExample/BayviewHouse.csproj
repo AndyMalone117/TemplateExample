@@ -183,6 +183,7 @@
     <Content Include="Views\Shared\Login.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Register\Status.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
