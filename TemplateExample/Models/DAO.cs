@@ -47,38 +47,6 @@ namespace BayviewHouse.Models
             }
             return rooms;
         }
-
-        public int InsertCustomer(Customer c)
-        {
-            int count = 0;
-
-            Connection();
-            SqlCommand cmd = new SqlCommand("uspInsertIntoCustomer", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@first", c.FirstName);
-            cmd.Parameters.AddWithValue("@last", c.LastName);
-            cmd.Parameters.AddWithValue("@email", c.Email);
-            cmd.Parameters.AddWithValue("@phone", c.Phone);
-            cmd.Parameters.AddWithValue("@pass", c.Password);
-            try
-            {
-                con.Open();
-                count = cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-
-                message = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-            return count;
-
-        }
-
         public List<Tour_Model> PopulateTours()
         {
             List<Tour_Model> tours = new List<Tour_Model>();
@@ -121,16 +89,14 @@ namespace BayviewHouse.Models
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspInsertIntoBooking", con);
             cmd.CommandType = CommandType.StoredProcedure;
-//            cmd.Parameters.AddWithValue("@Booking", booking.BookingID);
+            cmd.Parameters.AddWithValue("@Booking", booking.BookingID);
             cmd.Parameters.AddWithValue("@RoomId", booking.RoomID);
             cmd.Parameters.AddWithValue("@CustomerId", booking.CustomerID);
-            cmd.Parameters.AddWithValue("@Email", booking.Email);
-            cmd.Parameters.AddWithValue("@RoomName", booking.RoomName);
             cmd.Parameters.AddWithValue("@ArrivalDate", booking.ArrivalDate);
             cmd.Parameters.AddWithValue("@DepartureDate", booking.DepartureDate);
             cmd.Parameters.AddWithValue("@CardHolderName", booking.CardHolderName);
             cmd.Parameters.AddWithValue("@CardType", booking.CardType);
-            cmd.Parameters.AddWithValue("@CardNumber", booking.CreditCardNumber);
+            cmd.Parameters.AddWithValue("@CardType", booking.CreditCardNumber);
             cmd.Parameters.AddWithValue("@CardExpiry", booking.ExpiryDate);
             cmd.Parameters.AddWithValue("@SecurityNumber", booking.SecurityNumber);
 

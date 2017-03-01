@@ -31,6 +31,8 @@
                     @Html.TextBox("LastName")<br />
                     @Html.Label("Email:")<br />
                     @Html.TextBox("Email")<br />
+                    @Html.Label("Phone:")<br />
+                    @Html.TextBox("Phone")<br />
                     @Html.LabelFor(m => m.RoomName)<br />
                     @Html.DropDownListFor(m => m.RoomName, new SelectList((List<string>)@ViewData["RoomName"]))<br />
                     @Html.LabelFor(m => m.ArrivalDate)<br />
