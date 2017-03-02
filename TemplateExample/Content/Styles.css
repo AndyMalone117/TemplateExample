@@ -1,6 +1,17 @@
 ﻿ul.topnav li.icon {
     display: none;
 }
+
+.feedbackTable{
+   border-style:solid;
+   border-spacing:0;
+   
+}
+.feedbackTable td{
+   border-style:solid;
+  
+}
+
 body {
     margin: 0px;
     padding: 0px;

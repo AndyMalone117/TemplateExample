@@ -9,8 +9,8 @@
 <br />
 <h2>Feedback View Page</h2>
 
-<table class="table table-responsive table-bordered">
-    <thead style="background-color:Highlight">
+<table class="feedbackTable">
+    <thead style="background-color:yellowgreen">
         <tr>
             <th>Customer Name</th>
             <th>Customer Email</th>
@@ -22,19 +22,24 @@
             <th>Feedback Date</th>
         </tr>
     </thead>
-</table>
 
-@foreach (var i in Model)
-{
-    <td>@i.Name</td>
-            <td>@i.Email</td>
-            <td>@i.BookingRef</td>
-            <td>@i.Topic</td>
-            <td>@i.Comments</td>
-            <td>@i.Stay</td>
-            <td>@i.Recommend</td>
-            <td>@i.Time</td>
-}
+
+    @foreach (var i in Model)
+    {
+    <tr>
+        <td>@i.Name</td>
+        <td>@i.Email</td>
+        <td>@i.BookingRef</td>
+        <td>@i.Topic</td>
+        <td>@i.Comments</td>
+        <td>@i.Stay</td>
+        <td>@i.Recommend</td>
+        <td>@i.Time</td>
+    </tr>
+    }
+
+</table>
+<br />
 @Html.ActionLink("Back to BayView Staff Page ", "Index", "Staff")
 
 

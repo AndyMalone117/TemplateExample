@@ -33,8 +33,9 @@ namespace BayviewHouse.Models
         private DateTime? dateCreated;
         public DateTime Time
         {
-            get { return dateCreated ?? DateTime.Now; }
+            get { return dateCreated != null? dateCreated.Value : DateTime.Now; }
             set { dateCreated = value; }
         }
+
     }
 }
