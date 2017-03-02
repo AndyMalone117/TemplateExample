@@ -5,11 +5,13 @@
 .feedbackTable{
    border-style:solid;
    border-spacing:0;
+   border-width:2px;
+
    
 }
 .feedbackTable td{
    border-style:solid;
-  
+    border-width:1px;
 }
 
 body {
