@@ -20,7 +20,7 @@ namespace BayviewHouse.Controllers
         public ActionResult Register(Customer_Model customer)
         {
             int count;
-
+            
             //  member = new Member();
             if (ModelState.IsValid)
             {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace BayviewHouse.Models
 {
@@ -48,6 +50,33 @@ namespace BayviewHouse.Models
             Phone = phone;
             Password = password;
             PasswordConfirm = passwordConfirm;
+        } 
+        public bool Validate()
+        {
+            bool valid = false;
+
+            string emailRegEx = ConfigurationManager.AppSettings["EmailRegEx"];
+
+            int firstNameLength = 0;
+            int.TryParse(ConfigurationManager.AppSettings["firstNameLength"], out firstNameLength);
+
+            int lastNameLength = 0;
+            int.TryParse(ConfigurationManager.AppSettings["lastNameLength"], out lastNameLength);
+
+            int phoneLength = 0;
+            int.TryParse(ConfigurationManager.AppSettings["PhoneLength"], out phoneLength);
+
+            int passwordLength = 0;
+            int.TryParse(ConfigurationManager.AppSettings["PasswordLength"], out passwordLength);
+
+            int passwordConfirmLength = 0;
+            int.TryParse(ConfigurationManager.AppSettings["PasswordLength"], out passwordConfirmLength);
+
+            if (Regex.IsMatch(Email, emailRegEx) && FirstName.Length >= firstNameLength && LastName.Length >= lastNameLength && Phone.Length >= phoneLength && Password.Length >= passwordLength && PasswordConfirm.Length >= passwordConfirmLength)
+            {
+                valid = true;
+            }
+            return valid;
         }
     }
 }
