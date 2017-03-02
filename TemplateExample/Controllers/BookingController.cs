@@ -12,7 +12,7 @@ namespace BayviewHouse.Controllers
 {
     public class BookingController : Controller
     {
-        DAO dao;
+        DAO dao;        
 
         // GET: Booking
         public ActionResult Index()
@@ -20,12 +20,6 @@ namespace BayviewHouse.Controllers
             ViewData["RoomName"] = GetRoomNamesList();
             return View();
         }
-        [HttpGet]
-        public ActionResult Booking()
-        {
-            return View();
-        }
-
         private List<string> GetRoomNamesList()
         {
             dao = new DAO();
@@ -33,8 +27,13 @@ namespace BayviewHouse.Controllers
             List<string> rooms = dao.PopulateRooms();
             return rooms;
         }
+        [HttpGet]
+        public ActionResult Booking()
+        {
+            return View();
+        }
         [HttpPost]
-        public ActionResult Booking(Booking_Model booking)
+        public ActionResult AddBooking(Booking_Model booking)
         {
             ViewData["RoomName"] = GetRoomNamesList();
             int count = 0;
@@ -42,14 +41,46 @@ namespace BayviewHouse.Controllers
             {
                 count = dao.InsertBooking(booking);
                 if (count == 1)
-                    ViewData["message"] = "Record inserted successfully";
+                {
+                }
                 else
+                {
                     ViewData["message"] = dao.message;
+                }
                 return View("Index");
 
             }
+            else return View("AddBooking", booking);
 
-            else return View("AddCourse", booking);
+            //if (ModelState.IsValid)
+            //{
+            //    ViewData["message"] = "Record inserted successfully";
+            //    return RedirectToAction("Index");
+            //}
+            //else {
+            //    ViewData["message"] = "Error";
+
+            //    return View("Index", booking);
+            //}
+                
+        }
+
+
+        //means of checking the validity of a credit card number using LINQ
+        //Resourcehttps://bitlush.com/blog/luhn-validation-for-asp-net-web-forms-and-mvc       
+        public static bool IsCardValid(string cardNumber, bool allowSpaces = false)
+        {
+            if (allowSpaces)
+            {
+                cardNumber = cardNumber.Replace(" ", "");
+            }
+            if (cardNumber.Any(m=> !Char.IsDigit(m)))
+            {
+                return false;
+            }
+            int checksum = cardNumber.Select((m, i) => (m - '0') << ((cardNumber.Length - i - 1) & 1)).Sum(n => n > 9 ? n - 9 : n);
+
+            return (checksum % 10) == 0 && checksum > 0;
         }
     }
 }

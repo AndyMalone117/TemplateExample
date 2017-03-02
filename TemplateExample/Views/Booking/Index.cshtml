@@ -16,23 +16,25 @@
             </div>
         </div>
     </div>
+            @ViewData["message"]
+
     <div id="content">
         <p class="book_top">Reserve your stay</p>
         <hr>
-        @using (Html.BeginForm("Booking", "Booking", FormMethod.Post))
+        @using (Html.BeginForm("AddBooking", "Booking", FormMethod.Post))
         {
             @Html.ValidationSummary();
             <fieldset>
                 <legend>Reserve a room</legend>
                 <div id="datecheck">
-                    @Html.Label("Email:")<br />
-                    @Html.TextBox("Email")<br />
+                    @Html.LabelFor(m => m.Email)<br />
+                    @Html.TextBoxFor(m => m.Email)<br />
                     @Html.LabelFor(m => m.RoomName)<br />
                     @Html.DropDownListFor(m => m.RoomName, new SelectList((List<string>)@ViewData["RoomName"]))<br />
                     @Html.LabelFor(m => m.ArrivalDate)<br />
-                    @Html.TextBoxFor(m => m.ArrivalDate)<br />
+                    @Html.EditorFor(m => m.ArrivalDate)<br />
                     @Html.LabelFor(m => m.DepartureDate)<br />
-                    @Html.TextBoxFor(m => m.DepartureDate)<br />
+                    @Html.EditorFor(m => m.DepartureDate)<br />
                     @Html.LabelFor(m => m.CardHolderName)<br />
                     @Html.TextBoxFor(m => m.CardHolderName)<br />
                     @Html.LabelFor(m => m.CreditCardNumber)<br />
@@ -42,12 +44,14 @@
                     @Html.LabelFor(m => m.CardType)<br />
                     @Html.TextBoxFor(m => m.CardType)<br />
                     @Html.LabelFor(m => m.ExpiryDate)<br />
-                    @Html.TextBoxFor(m => m.ExpiryDate)<br />
+                    @Html.EditorFor(m => m.ExpiryDate)<br />
 
                 <input id="Submit1" type="submit" value="Add" />
             </div>
         </fieldset>
-        }        
+        }     
+        
     <p class="about_text">The regular check-in times are daily from 12pm - 6pm. Please make the B&B aware if you plan to arrive outside of these hours to arrange. Breakfast is served from 7.30am weekdays and 7am weekends. Gillian’s B&B has four types of rooms available, view Our Offers page for more information.</p>
     <hr>
 </div>
+

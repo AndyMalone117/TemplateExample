@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace BayviewHouse.Models
 {
@@ -25,10 +27,11 @@ namespace BayviewHouse.Models
 
         [Display(Name = "Phone")]
         [Required(ErrorMessage = "Phone number required")]
+        [RegularExpression("^[0-9]{7,}$", ErrorMessage = "Phone must 7 digits or more")]
         public string Phone { get; set; }
         
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Password Required")]
+        [Required(ErrorMessage = "Password Required")]        
         [StringLength(10, ErrorMessage = "Password must contain 5 to 10 characters", MinimumLength = 5)]
         public string Password { get; set; }
 
@@ -48,6 +51,6 @@ namespace BayviewHouse.Models
             Phone = phone;
             Password = password;
             PasswordConfirm = passwordConfirm;
-        }
+        }         
     }
 }
