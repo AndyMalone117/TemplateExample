@@ -1,5 +1,6 @@
 ﻿using BayviewHouse.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Web.Mvc;
 
@@ -24,13 +25,13 @@ namespace BayviewHouse.Controllers
 
                 ds.ReadXml(Server.MapPath(@"~/feedback.xml"));
 
-                dt = ds.Tables["user_comment"];
+                dt = ds.Tables["customer_comment"];
 
             }
             else
             {
-                ds = new DataSet("user_comments");
-                dt = new DataTable("user_comment");
+                ds = new DataSet("customer_comments");
+                dt = new DataTable("customer_comment");
                 dt.Columns.Add("name");
                 dt.Columns.Add("email");
                 dt.Columns.Add("bookingRef");
@@ -71,5 +72,34 @@ namespace BayviewHouse.Controllers
             }
             else return View("Index", model);
         }
+
+        public ActionResult ShowFeedback()
+        {
+            List<ContactModel> list = new List<ContactModel>();
+            if (System.IO.File.Exists(Server.MapPath(@"~/feedback.xml")))
+            {
+                DataSet dSet = new System.Data.DataSet();
+                dSet.ReadXml(Server.MapPath(@"~/feedback.xml"));
+
+                DataTable comments = dSet.Tables["customer_comment"];
+                foreach (DataRow row in comments.Rows)
+                {
+                    ContactModel model = new ContactModel();
+                    model.Name = row["name"].ToString();
+                    model.Email = row["email"].ToString();
+                    model.BookingRef = row["bookingRef"].ToString();
+                    model.Topic = row["topic"].ToString();
+                    model.Comments = row["comments"].ToString();
+                    model.Stay = row["stayAgain"].ToString();
+                    model.Recommend = row["recommend"].ToString();
+                    model.Time = (DateTime)row["date"];
+                    list.Add(model);
+
+
+                }
+            }
+            return View(list);
+        }
+
     }
 }
