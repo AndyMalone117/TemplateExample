@@ -60,9 +60,9 @@ namespace BayviewHouse.Controllers
                     row["bookingRef"] = model.BookingRef;
                     row["topic"] = model.Topic;
                     row["comments"] = model.Comments;
-                row["stayAgain"] = model.Stay;
+                    row["stayAgain"] = model.Stay;
                     row["recommend"] = model.Recommend;
-                    row["date"] = model.Time;
+                    row["date"] = model.Time.ToShortDateString();
                 
 
                 dt.Rows.Add(row);
@@ -73,7 +73,7 @@ namespace BayviewHouse.Controllers
             else return View("Index", model);
         }
 
-        public ActionResult ShowFeedback()
+        public ActionResult Feedback()
         {
             List<ContactModel> list = new List<ContactModel>();
             if (System.IO.File.Exists(Server.MapPath(@"~/feedback.xml")))
@@ -92,7 +92,9 @@ namespace BayviewHouse.Controllers
                     model.Comments = row["comments"].ToString();
                     model.Stay = row["stayAgain"].ToString();
                     model.Recommend = row["recommend"].ToString();
-                    model.Time = (DateTime)row["date"];
+                    string istring = row["date"].ToString();
+                    //model.Time = DateTime.ParseExact(istring, "dd-mmM-yyyy HH:mm:ss tt", null);
+                    model.Time = DateTime.ParseExact(istring, "d", null);
                     list.Add(model);
 
 

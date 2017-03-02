@@ -61,7 +61,9 @@ namespace BayviewHouse.Controllers
                     string firstName = dao.CheckLogin(customer);
 
                     Session.Add("Name", customer.FirstName);
-                    Session.Add("Email", customer.Email);
+                    Session.Add("Email", customer.Email);                    
+
+                    return RedirectToAction("Index", "Booking");
 
                 }
 

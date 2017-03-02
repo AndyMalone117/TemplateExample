@@ -45,8 +45,6 @@ namespace BayviewHouse.Controllers
         public ActionResult Index(FormCollection form)
         {
             string password = form["Password"];
-
-
             string match = form["txtMatch"];
 
             //Encrypting the passwrod and obtaianing the hash value
