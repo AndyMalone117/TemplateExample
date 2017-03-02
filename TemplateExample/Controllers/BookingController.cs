@@ -52,16 +52,6 @@ namespace BayviewHouse.Controllers
             }
             else return View("AddBooking", booking);
 
-            //if (ModelState.IsValid)
-            //{
-            //    ViewData["message"] = "Record inserted successfully";
-            //    return RedirectToAction("Index");
-            //}
-            //else {
-            //    ViewData["message"] = "Error";
-
-            //    return View("Index", booking);
-            //}
                 
         }
 
