@@ -19,6 +19,6 @@ namespace BayviewHouse.Models
         [StringLength(10, ErrorMessage = "Password must contain 5 to 10 characters", MinimumLength = 5)]
         public string Password { get; set; }
 
-        public Role UserRole { get; set; }
+        public Role UserRole { get; set; }  
     }
 }

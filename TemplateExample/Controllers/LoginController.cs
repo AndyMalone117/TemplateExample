@@ -20,9 +20,7 @@ namespace BayviewHouse.Controllers
         public ActionResult Status()
         {
             return View();
-        }
-
-      
+        }      
 
         public ActionResult Logout()
         {
@@ -49,12 +47,23 @@ namespace BayviewHouse.Controllers
                     return RedirectToAction("Index", "Staff");
                 }
 
-                if (model.UserRole == Role.Staff && model.Email == "mgmt@gmail.com" && model.Password == "BayMgmt")
+                else if (model.UserRole == Role.Staff && model.Email == "mgmt@gmail.com" && model.Password == "BayMgmt")
                 {
                     Session["Name"] = "Management";
                     return RedirectToAction("Index", "Staff");
                 }
+                else if(model.UserRole == Role.Customer)
+                {
+                    Customer_Model customer = new Customer_Model();
+                    customer.Email = model.Email;
+                    customer.Password = model.Password;
 
+                    string firstName = dao.CheckLogin(customer);
+
+                    Session.Add("Name", customer.FirstName);
+                    Session.Add("Email", customer.Email);
+
+                }
 
                 if (Session["Name"] != null)
                     return View("../Home/Index");
@@ -68,7 +77,6 @@ namespace BayviewHouse.Controllers
             }
             else
             {
-
                 return View("Index", model);
             }
         }

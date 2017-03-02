@@ -148,7 +148,33 @@ namespace BayviewHouse.Models
             }
             return count;
         }
-
-    }
-   
+        public string CheckLogin(Customer_Model c)
+        {
+            c.FirstName = null;
+            Connection();
+            SqlDataReader reader;
+            SqlCommand command = new SqlCommand("uspCheckLogin", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@email", c.Email);
+            command.Parameters.AddWithValue("@pass", c.Password);
+            try
+            {
+                con.Open();
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    c.FirstName = reader["FirstName"].ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return c.FirstName;
+        }
+    }   
 }
