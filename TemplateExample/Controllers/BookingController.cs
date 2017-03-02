@@ -12,7 +12,7 @@ namespace BayviewHouse.Controllers
 {
     public class BookingController : Controller
     {
-        DAO dao;
+        DAO dao;        
 
         // GET: Booking
         public ActionResult Index()
@@ -42,14 +42,34 @@ namespace BayviewHouse.Controllers
             {
                 count = dao.InsertBooking(booking);
                 if (count == 1)
+                { 
                     ViewData["message"] = "Record inserted successfully";
+                }
                 else
+                {
                     ViewData["message"] = dao.message;
+                }
                 return View("Index");
 
             }
-
             else return View("AddCourse", booking);
+        }
+
+        //means of checking the validity of a credit card number using LINQ
+        //Resourcehttps://bitlush.com/blog/luhn-validation-for-asp-net-web-forms-and-mvc       
+        public static bool IsCardValid(string cardNumber, bool allowSpaces = false)
+        {
+            if (allowSpaces)
+            {
+                cardNumber = cardNumber.Replace(" ", "");
+            }
+            if (cardNumber.Any(m=> !Char.IsDigit(m)))
+            {
+                return false;
+            }
+            int checksum = cardNumber.Select((m, i) => (m - '0') << ((cardNumber.Length - i - 1) & 1)).Sum(n => n > 9 ? n - 9 : n);
+
+            return (checksum % 10) == 0 && checksum > 0;
         }
     }
 }
