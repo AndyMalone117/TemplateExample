@@ -16,11 +16,14 @@
             </div>
         </div>
     </div>
+            @ViewData["message"]
+
     <div id="content">
         <p class="book_top">Reserve your stay</p>
         <hr>
         @using (Html.BeginForm("AddBooking", "Booking", FormMethod.Post))
         {
+
             @Html.ValidationSummary();
             <fieldset>
                 <legend>Reserve a room</legend>
@@ -48,6 +51,7 @@
             </div>
         </fieldset>
         }        
+
     <p class="about_text">The regular check-in times are daily from 12pm - 6pm. Please make the B&B aware if you plan to arrive outside of these hours to arrange. Breakfast is served from 7.30am weekdays and 7am weekends. Gillian’s B&B has four types of rooms available, view Our Offers page for more information.</p>
     <hr>
 </div>

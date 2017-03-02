@@ -41,8 +41,7 @@ namespace BayviewHouse.Controllers
             {
                 count = dao.InsertBooking(booking);
                 if (count == 1)
-                { 
-                    ViewData["message"] = "Record inserted successfully";
+                {
                 }
                 else
                 {
@@ -51,8 +50,21 @@ namespace BayviewHouse.Controllers
                 return View("Index");
 
             }
-            else return View("AddCourse", booking);
+            else return View("AddBooking", booking);
+
+            //if (ModelState.IsValid)
+            //{
+            //    ViewData["message"] = "Record inserted successfully";
+            //    return RedirectToAction("Index");
+            //}
+            //else {
+            //    ViewData["message"] = "Error";
+
+            //    return View("Index", booking);
+            //}
+                
         }
+
 
         //means of checking the validity of a credit card number using LINQ
         //Resourcehttps://bitlush.com/blog/luhn-validation-for-asp-net-web-forms-and-mvc       
