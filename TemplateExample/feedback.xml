@@ -10,4 +10,14 @@
     <recommend>Yes</recommend>
     <date>3/2/2017</date>
   </customer_comment>
+  <customer_comment>
+    <name>Jeff Test</name>
+    <email>abcd@gmail.com</email>
+    <bookingRef>abc1234</bookingRef>
+    <topic>Culinary Feedback</topic>
+    <comments>Super Food</comments>
+    <stayAgain>Yes</stayAgain>
+    <recommend>Yes</recommend>
+    <date>3/2/2017</date>
+  </customer_comment>
 </customer_comments>
