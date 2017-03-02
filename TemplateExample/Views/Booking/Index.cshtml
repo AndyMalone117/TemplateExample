@@ -19,14 +19,14 @@
     <div id="content">
         <p class="book_top">Reserve your stay</p>
         <hr>
-        @using (Html.BeginForm("Booking", "Booking", FormMethod.Post))
+        @using (Html.BeginForm("AddBooking", "Booking", FormMethod.Post))
         {
             @Html.ValidationSummary();
             <fieldset>
                 <legend>Reserve a room</legend>
                 <div id="datecheck">
-                    @Html.Label("Email:")<br />
-                    @Html.TextBox("Email")<br />
+                    @Html.LabelFor(m => m.Email)<br />
+                    @Html.TextBoxFor(m => m.Email)<br />
                     @Html.LabelFor(m => m.RoomName)<br />
                     @Html.DropDownListFor(m => m.RoomName, new SelectList((List<string>)@ViewData["RoomName"]))<br />
                     @Html.LabelFor(m => m.ArrivalDate)<br />

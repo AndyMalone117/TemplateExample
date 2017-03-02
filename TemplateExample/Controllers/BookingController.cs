@@ -20,12 +20,6 @@ namespace BayviewHouse.Controllers
             ViewData["RoomName"] = GetRoomNamesList();
             return View();
         }
-        [HttpGet]
-        public ActionResult Booking()
-        {
-            return View();
-        }
-
         private List<string> GetRoomNamesList()
         {
             dao = new DAO();
@@ -33,8 +27,13 @@ namespace BayviewHouse.Controllers
             List<string> rooms = dao.PopulateRooms();
             return rooms;
         }
+        [HttpGet]
+        public ActionResult Booking()
+        {
+            return View();
+        }
         [HttpPost]
-        public ActionResult Booking(Booking_Model booking)
+        public ActionResult AddBooking(Booking_Model booking)
         {
             ViewData["RoomName"] = GetRoomNamesList();
             int count = 0;
@@ -48,7 +47,6 @@ namespace BayviewHouse.Controllers
                 return View("Index");
 
             }
-
             else return View("AddCourse", booking);
         }
     }
