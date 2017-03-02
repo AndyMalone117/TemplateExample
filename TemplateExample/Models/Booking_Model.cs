@@ -12,8 +12,8 @@ namespace BayviewHouse.Models
     public class Booking_Model
     {
         [Display(Name = "Email")]
-        [Required(ErrorMessage = "Email Required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        //[Required(ErrorMessage = "Email Required")]
+        //[EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
         [Display(Name = "Room Name")]
@@ -29,17 +29,17 @@ namespace BayviewHouse.Models
         public DateTime? DepartureDate { get; set; }
 
         [Display(Name = "Card Holder Name")]
-        [Required(ErrorMessage ="Card Holder Name Required")]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Invalid Card Holder Name")]
+        //[Required(ErrorMessage ="Card Holder Name Required")]
+        //[RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Invalid Card Holder Name")]
         public string CardHolderName { get; set; }
 
         [Display(Name = "Card Type")]
-        [Required(ErrorMessage ="Card Type Required")]
+        //[Required(ErrorMessage ="Card Type Required")]
         public string CardType { get; set; }
 
         [Display(Name = "Card Number")]
-        [Required(ErrorMessage ="Card Number Required")]
-        [RegularExpression("^[0-9]{16}+$", ErrorMessage = "Invalid Card Number")]
+        //[Required(ErrorMessage ="Card Number Required")]
+        //[RegularExpression("^[0-9]{16}+$", ErrorMessage = "Invalid Card Number")]
         public string CreditCardNumber { get; set; }
 
         [Display(Name = "Expiry Date")]
@@ -47,8 +47,8 @@ namespace BayviewHouse.Models
         public DateTime ExpiryDate { get; set; }
 
         [Display(Name = "CVV")]
-        [Required(ErrorMessage ="CVV Security Number Required")]
-        [RegularExpression("^[0-9]{3}+$", ErrorMessage ="Invalid CVV Security Number")]
+        //[Required(ErrorMessage ="CVV Security Number Required")]
+        //[RegularExpression("^[0-9]{3}+$", ErrorMessage ="Invalid CVV Security Number")]
         public int SecurityNumber { get; set; }    
 
         public Booking_Model() { }
