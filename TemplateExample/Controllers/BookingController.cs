@@ -14,6 +14,7 @@ namespace BayviewHouse.Controllers
     public class BookingController : Controller
     {
         DAO dao;
+       
 
         // GET: Booking
         public ActionResult Index()
@@ -83,9 +84,7 @@ namespace BayviewHouse.Controllers
     public class cardValidator
     {
         private static int[] userInput;
-        //test
-        //test2
-
+       
         public static void cleanInput(string input) => userInput = input.Where(_ => !char.Equals(_, ' ') && char.IsDigit(_)).Reverse()
             .Select(_ => int.Parse(_.ToString())).ToArray();
 

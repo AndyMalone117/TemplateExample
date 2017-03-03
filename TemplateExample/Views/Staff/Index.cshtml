@@ -7,8 +7,18 @@
 <br />
 <h2>Staff Page<span style="float:right; padding-right:5em;">@Session["Name"], you are logged in</span><br /></h2>
 
+
+@if (@Session["Name"].ToString() == "Management")
+{
 <p>@Html.ActionLink("Show User Feedback", "Feedback", "Contact")</p>
-<p>@Html.ActionLink("Show Bookings", "Bookings", "Contact")</p>
+<p>@Html.ActionLink("Show Bookings", "Booking", "Booking")</p>
+}
+
+@if (@Session["Name"].ToString() == "Staff")
+{
+ 
+    <p>@Html.ActionLink("Show Bookings", "Bookings", "Contact")</p>
+}
 
 
 
