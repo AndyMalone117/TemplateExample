@@ -11,9 +11,11 @@ using System.Configuration;
 
 namespace BayviewHouse.Controllers
 {
+
     public class BookingController : Controller
     {
-        DAO dao;
+        
+        DAO dao = new DAO();
        
 
         // GET: Booking
@@ -25,7 +27,7 @@ namespace BayviewHouse.Controllers
         }
         private List<string> GetRoomNamesList()
         {
-            dao = new DAO();
+            //dao = new DAO();
 
 
             List<string> rooms = dao.PopulateRooms();
@@ -34,6 +36,7 @@ namespace BayviewHouse.Controllers
         [HttpGet]
         public ActionResult Booking()
         {
+
             return View();
         }
         [HttpPost]
@@ -67,10 +70,11 @@ namespace BayviewHouse.Controllers
 
         public ActionResult ShowAll()
         {
-
-            List<Booking_Model> list = dao.ShowAllBookings();
-
-            return View(list);
+            //Booking_Model book = new Booking_Model();
+           
+            List<Booking_Model> bookingList = dao.ShowAllBookings();
+            
+            return View(bookingList);
 
         }
         //means of checking the validity of a credit card number using LINQ

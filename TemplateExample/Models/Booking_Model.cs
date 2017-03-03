@@ -10,6 +10,7 @@ using static BayviewHouse.Controllers.BookingController;
 
 namespace BayviewHouse.Models
 {
+  
     public class Booking_Model
     {
         [Display(Name = "Booking ID")]
