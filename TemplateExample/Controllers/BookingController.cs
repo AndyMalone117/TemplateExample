@@ -62,6 +62,16 @@ namespace BayviewHouse.Controllers
             else return View("AddBooking", booking);
 
 }
+
+
+        public ActionResult ShowAll()
+        {
+
+            List<Booking_Model> list = dao.ShowAllBookings();
+
+            return View(list);
+
+        }
         //means of checking the validity of a credit card number using LINQ
         //Resourcehttps://bitlush.com/blog/luhn-validation-for-asp-net-web-forms-and-mvc       
         public static bool IsCardValid(string cardNumber, bool allowSpaces = false)

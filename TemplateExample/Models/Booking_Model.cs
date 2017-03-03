@@ -12,6 +12,9 @@ namespace BayviewHouse.Models
 {
     public class Booking_Model
     {
+        [Display(Name = "Booking ID")]
+        public int BookingId { get; set; }
+
         [Display(Name = "Email")]
         //[Required(ErrorMessage = "Email Required")]
         //[EmailAddress(ErrorMessage = "Invalid Email Address")]
