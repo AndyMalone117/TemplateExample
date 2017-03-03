@@ -196,7 +196,6 @@
     <Content Include="Views\Register\Status.cshtml" />
     <Content Include="Views\Contact\Comments.cshtml" />
     <Content Include="Views\Contact\Feedback.cshtml" />
-    <Content Include="Views\Contact\Bookings.cshtml" />
     <Content Include="Views\Booking\Booking.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
