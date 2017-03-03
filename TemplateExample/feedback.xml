@@ -1,13 +1,33 @@
 <?xml version="1.0" standalone="yes"?>
 <customer_comments>
   <customer_comment>
+    <name>Mary Test</name>
+    <email>abcd@gmail.com</email>
+    <bookingRef>5345234523</bookingRef>
+    <topic>General</topic>
+    <comments>Excellent B&amp;B...thanks so much!</comments>
+    <stayAgain>Yes</stayAgain>
+    <recommend>Yes</recommend>
+    <date>Friday, March 3, 2017</date>
+  </customer_comment>
+  <customer_comment>
     <name>Michael Walsh</name>
     <email>michaelrwalsh@yahoo.ie</email>
     <bookingRef>AB123456</bookingRef>
-    <topic>Reservation Feedback</topic>
+    <topic>Reseravation</topic>
     <comments>Test</comments>
     <stayAgain>Yes</stayAgain>
     <recommend>Yes</recommend>
     <date>Friday, March 3, 2017</date>
+  </customer_comment>
+  <customer_comment>
+    <name>Michael Walsh</name>
+    <email>michaelrwalsh@yahoo.ie</email>
+    <bookingRef>AB123456</bookingRef>
+    <topic>Reseravation</topic>
+    <comments>Test</comments>
+    <stayAgain>Yes</stayAgain>
+    <recommend>Yes</recommend>
+    <date>Thursday, March 2, 2017</date>
   </customer_comment>
 </customer_comments>
