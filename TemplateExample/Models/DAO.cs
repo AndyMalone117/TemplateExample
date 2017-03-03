@@ -120,9 +120,18 @@ namespace BayviewHouse.Models
         {
         Connection();
         SqlDataReader reader;
-        List<Booking_Model> list = new List<Booking_Model>();
+        List<Booking_Model> bookingList = new List<Booking_Model>();
+            //Booking_Model model1 = new Booking_Model();
+            //model1.BookingId = 1234;
+            //model1.Email = null;
+            //model1.RoomName = null;
+            //model1.ArrivalDate = null;
+            //model1.DepartureDate = null;
+            //bookingList.Add(model1);
+            //bookingList.Add(new Booking_Model(1234, null, null, null, null,null, null, null, null, null));
         SqlCommand cmd = new SqlCommand("uspShowAllBookings", con);
-        
+        cmd.CommandType = CommandType.StoredProcedure;
+
             try
             {
                 con.Open();
@@ -135,7 +144,12 @@ namespace BayviewHouse.Models
                     booking.RoomName = reader["RoomName"].ToString();
                     booking.ArrivalDate = DateTime.Parse(reader["ArrivalDate"].ToString());
                     booking.DepartureDate = DateTime.Parse(reader["DepartureDate"].ToString());
-                    list.Add(booking);
+                    booking.CardHolderName = reader["CardHolderName"].ToString();
+                    booking.CardType = reader["CardType"].ToString();
+                    booking.CreditCardNumber = reader["CardNumber"].ToString();
+                    booking.ExpiryDate = DateTime.Parse(reader["CardExpiry"].ToString());
+                    booking.SecurityNumber = int.Parse(reader["SecurityNumber"].ToString());
+                    bookingList.Add(booking);
                 }
             }
             catch (Exception ex)
@@ -146,7 +160,7 @@ namespace BayviewHouse.Models
             {
                 con.Close();
             }
-            return list;
+            return bookingList;
         }
 #endregion
 #region register/login
