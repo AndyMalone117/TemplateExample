@@ -4,20 +4,10 @@
     <name>Michael Walsh</name>
     <email>michaelrwalsh@yahoo.ie</email>
     <bookingRef>AB123456</bookingRef>
-    <topic>General Feedback</topic>
-    <comments>Excellent B&amp;B</comments>
+    <topic>Reservation Feedback</topic>
+    <comments>Test</comments>
     <stayAgain>Yes</stayAgain>
     <recommend>Yes</recommend>
-    <date>3/2/2017</date>
-  </customer_comment>
-  <customer_comment>
-    <name>Jeff Test</name>
-    <email>abcd@gmail.com</email>
-    <bookingRef>abc1234</bookingRef>
-    <topic>Culinary Feedback</topic>
-    <comments>Super Food</comments>
-    <stayAgain>Yes</stayAgain>
-    <recommend>Yes</recommend>
-    <date>3/2/2017</date>
+    <date>Friday, March 3, 2017</date>
   </customer_comment>
 </customer_comments>

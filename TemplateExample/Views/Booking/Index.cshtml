@@ -1,5 +1,9 @@
 ﻿@model BayviewHouse.Models.Booking_Model
 
+
+
+
+
     @{
         ViewBag.Title = "Index";
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,12 +21,15 @@
         </div>
     </div>
             @ViewData["message"]
+            @TempData["Message"]
 
     <div id="content">
         <p class="book_top">Reserve your stay</p>
         <hr>
         @using (Html.BeginForm("AddBooking", "Booking", FormMethod.Post))
         {
+
+
             @Html.ValidationSummary();
             <fieldset>
                 <legend>Reserve a room</legend>
@@ -42,7 +49,7 @@
                     @Html.LabelFor(m => m.SecurityNumber)<br />
                     @Html.TextBoxFor(m => m.SecurityNumber)<br />
                     @Html.LabelFor(m => m.CardType)<br />
-                    @Html.TextBoxFor(m => m.CardType)<br />
+                    @Html.DropDownListFor(m => m.CardType, new SelectList(new[] { "Visa", "MasterCard" , "AmericanExpress"}))<br />
                     @Html.LabelFor(m => m.ExpiryDate)<br />
                     @Html.EditorFor(m => m.ExpiryDate)<br />
 
