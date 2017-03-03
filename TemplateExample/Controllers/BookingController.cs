@@ -60,7 +60,8 @@ namespace BayviewHouse.Controllers
                 return View("Index");
 
             }
-            else return View("AddBooking", booking);
+            else return View("Index", booking);
+
         }
         public ActionResult ShowAll()
         {
