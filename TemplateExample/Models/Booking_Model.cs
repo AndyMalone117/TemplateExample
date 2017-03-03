@@ -33,8 +33,8 @@ namespace BayviewHouse.Models
         public DateTime? DepartureDate { get; set; }
 
         [Display(Name = "Card Holder Name")]
-        //[Required(ErrorMessage ="Card Holder Name Required")]
-        //[RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Invalid Card Holder Name")]
+        [Required(ErrorMessage ="Card Holder Name Required")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Invalid Card Holder Name")]
         public string CardHolderName { get; set; }
 
         [Display(Name = "Card Type")]
