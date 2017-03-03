@@ -10,7 +10,7 @@ namespace BayviewHouse.Controllers
 {
     public class RegisterController : Controller
     {
-        DAO dao = new DAO();
+        DAO dao = new DAO();        
         // GET: RegisterLogin
         public ActionResult Index()
         {
@@ -22,7 +22,8 @@ namespace BayviewHouse.Controllers
             int count;
                 //  member = new Member();
                 if (ModelState.IsValid)
-                {
+                {                
+
                     if (customer.Password != customer.PasswordConfirm)
                     {
                         ViewData["status"] = "Password Enter Does not Match";
