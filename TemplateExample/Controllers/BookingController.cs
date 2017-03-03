@@ -38,10 +38,10 @@ namespace BayviewHouse.Controllers
         {
             ViewData["RoomName"] = GetRoomNamesList();
 
-            string userCardInput = booking.CreditCardNumber;
-
+            string userCardInput = booking.CreditCardNumber;  
+            
             int count = 0;            
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && cardValidate(booking.CreditCardNumber.ToString()) == true)
             {
                 count = dao.InsertBooking(booking);
                 if (count == 1)
@@ -56,32 +56,14 @@ namespace BayviewHouse.Controllers
             }
             else return View("AddBooking", booking);
 
-        }
-        //means of checking the validity of a credit card number using LINQ
-        //Resourcehttps://bitlush.com/blog/luhn-validation-for-asp-net-web-forms-and-mvc       
-        public static bool IsCardValid(string cardNumber, bool allowSpaces = false)
-        {
-            if (allowSpaces)
-            {
-                cardNumber = cardNumber.Replace(" ", "");
-            }
-            if (cardNumber.Any(m => !Char.IsDigit(m)))
-            {
-                return false;
-            }
-            int checksum = cardNumber.Select((m, i) => (m - '0') << ((cardNumber.Length - i - 1) & 1)).Sum(n => n > 9 ? n - 9 : n);
-
-            return (checksum % 10) == 0 && checksum > 0;
-        }
-    }
-
-    public class cardValidator
-    {
+        }       
         private static int[] userInput;
 
+        //clears the input of potential formatting errors
+        //www.youtube.com/watch?v=lkq3ywfCQcI
         public static void cleanInput(string input) => userInput = input.Where(_ => !char.Equals(_, ' ') && char.IsDigit(_)).Reverse()
             .Select(_ => int.Parse(_.ToString())).ToArray();
-
+        
         private static void MultiplyValues()
         {
             for (int i = 0; i < userInput.Length; i++)
@@ -99,7 +81,7 @@ namespace BayviewHouse.Controllers
             {
                 if (userInput[i] > 9)
                 {
-                    foreach (var character in userInput)
+                    foreach (var character in userInput[i].ToString())
                     {
                         sum += int.Parse(character.ToString());
                     }
@@ -109,10 +91,12 @@ namespace BayviewHouse.Controllers
             }
             return sum;
         }
-        public static bool Validate(string input)
+        //The boolean method is called above 
+        public static bool cardValidate(string input)
         {
             cleanInput(input);
             MultiplyValues();
+            //calling method AddValues and setting the boolen to true if result = 0
             return AddValues() % 10 == 0;
         }
     }
