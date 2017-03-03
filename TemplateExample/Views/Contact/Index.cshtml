@@ -22,10 +22,6 @@
                 <span style="color:red">
                     @Html.ValidationSummary()
                 </span>
-                @*<p>
-                    @Html.LabelFor(c => c.Topic)<br />
-                    @Html.DropDownList(c => c.Topic)
-                </p>*@
                 <p>
                     @Html.LabelFor(c => c.Name)<br />
                     @Html.TextBoxFor(c => c.Name) <span>(Optional)</span>
@@ -43,8 +39,8 @@
                     @Html.TextAreaFor(c => c.Comments, new { @rows = 4, @cols = 50 })
                 </p>
 
-            @Html.LabelFor(c => c.Topic)<br />
-            @Html.DropDownListFor(c => c.Topic, new SelectList(new[] { "General", "Reseravation", "Tours", "Culinary"}))<br />
+                    @Html.LabelFor(c => c.Topic)<br />
+                    @Html.DropDownListFor(c => c.Topic, new SelectList(new[] { "General", "Reseravation", "Tours", "Culinary"}))<br />
 
             <p>
                 <label for="Stay">Would you stay again?</label>
@@ -52,7 +48,7 @@
                 @Html.RadioButtonFor(c => c.Stay, "No") No
             </p>
             <p>
-                <label for="Stay">Would you Recommend Bayview House  to a freind?</label>
+                <label for="Recommend">Would you Recommend Bayview House  to a freind?</label>
                 @Html.RadioButtonFor(c => c.Recommend, "Yes") Yes
                 @Html.RadioButtonFor(c => c.Recommend, "No") No
             </p>
