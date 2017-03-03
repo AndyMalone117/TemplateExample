@@ -62,7 +62,7 @@ namespace BayviewHouse.Controllers
                     row["comments"] = model.Comments;
                     row["stayAgain"] = model.Stay;
                     row["recommend"] = model.Recommend;
-                    row["date"] = model.Time.ToShortDateString();
+                    row["date"] = model.Time.ToLongDateString();
                 
 
                 dt.Rows.Add(row);
@@ -94,7 +94,8 @@ namespace BayviewHouse.Controllers
                     model.Recommend = row["recommend"].ToString();
                     string istring = row["date"].ToString();
                     //model.Time = DateTime.ParseExact(istring, "dd-mmM-yyyy HH:mm:ss tt", null);
-                    model.Time = DateTime.ParseExact(istring, "d", null);
+                    model.Time = DateTime.ParseExact(istring, "D", null);
+                    
                     list.Add(model);
 
 

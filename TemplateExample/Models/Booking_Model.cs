@@ -6,11 +6,15 @@ using System.Web;
 using System.Web.Mvc;
 using System.Configuration;
 using System.Text.RegularExpressions;
+using static BayviewHouse.Controllers.BookingController;
 
 namespace BayviewHouse.Models
 {
     public class Booking_Model
     {
+        [Display(Name = "Booking ID")]
+        public int BookingId { get; set; }
+
         [Display(Name = "Email")]
         //[Required(ErrorMessage = "Email Required")]
         //[EmailAddress(ErrorMessage = "Invalid Email Address")]
@@ -50,19 +54,6 @@ namespace BayviewHouse.Models
         //[Required(ErrorMessage ="CVV Security Number Required")]
         //[RegularExpression("^[0-9]{3}+$", ErrorMessage ="Invalid CVV Security Number")]
         public int SecurityNumber { get; set; }    
-
-        public Booking_Model() { }
-        public Booking_Model(string email, string roomName, DateTime arrivalDate , DateTime departureDate, string cardHolderName, string cardType, string creditCardNumber, DateTime expiryDate ,int securityNumber)
-        {            
-            Email = email;
-            RoomName = roomName;
-            ArrivalDate = arrivalDate;
-            DepartureDate = departureDate;
-            CardHolderName = cardHolderName;
-            CardType = cardType;
-            CreditCardNumber = creditCardNumber;
-            ExpiryDate = expiryDate;
-            SecurityNumber = securityNumber;
-        }        
+ 
     }
 }

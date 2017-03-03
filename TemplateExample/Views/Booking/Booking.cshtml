@@ -1,0 +1,38 @@
+﻿@using BayviewHouse.Models
+@model IEnumerable<Booking_Model>
+
+
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>All Bookings</h2>
+<table border="1">
+    <tr>
+        <th><p>Booking ID</p></th>
+        <th><p>Customer Email</p></th>
+        <th><p>Room Name</p></th>
+        <th><p>Arrival Date </p></th>
+        <th><p>Departure Date </p></th>
+
+    </tr>
+    @foreach (var booking in Model)
+    {
+
+
+        using (Html.BeginForm("AddBooking", "Index", FormMethod.Post))
+        {
+            <input type="text" name="code" value=@booking.BookingId width="200" hidden />
+            <tr>
+                <td><p>@booking.BookingId</p></td>
+                <td><p>@booking.Email</p></td>
+                <td><p>@booking.RoomName</p></td>
+                <td><p>@booking.ArrivalDate</p></td>
+                <td><p>@booking.DepartureDate</p></td>
+            </tr>
+        }
+    }
+</table>
+

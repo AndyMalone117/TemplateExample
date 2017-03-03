@@ -14,16 +14,19 @@ namespace BayviewHouse.Controllers
     public class BookingController : Controller
     {
         DAO dao;
+       
 
         // GET: Booking
         public ActionResult Index()
         {
+
             ViewData["RoomName"] = GetRoomNamesList();
             return View();
         }
         private List<string> GetRoomNamesList()
         {
             dao = new DAO();
+
 
             List<string> rooms = dao.PopulateRooms();
             return rooms;
@@ -36,6 +39,7 @@ namespace BayviewHouse.Controllers
         [HttpPost]
         public ActionResult AddBooking(Booking_Model booking)
         {
+
             ViewData["RoomName"] = GetRoomNamesList();
 
             string userCardInput = booking.CreditCardNumber;  
@@ -46,6 +50,8 @@ namespace BayviewHouse.Controllers
                 count = dao.InsertBooking(booking);
                 if (count == 1)
                 {
+                    TempData["Message"] = "Booking Confirmed";
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -56,11 +62,7 @@ namespace BayviewHouse.Controllers
             }
             else return View("AddBooking", booking);
 
-        }       
-        private static int[] userInput;
 
-        //clears the input of potential formatting errors
-        //www.youtube.com/watch?v=lkq3ywfCQcI
         public static void cleanInput(string input) => userInput = input.Where(_ => !char.Equals(_, ' ') && char.IsDigit(_)).Reverse()
             .Select(_ => int.Parse(_.ToString())).ToArray();
         

@@ -18,48 +18,23 @@ namespace BayviewHouse.Models
         {
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBCon"].ConnectionString);
         }
-
-        public List<string> PopulateRooms()
+#region booking
+        public int InsertBooking(Booking_Model booking)
         {
-            List<string> rooms = new List<string>();
             Connection();
-            SqlDataReader reader;
-            SqlCommand cmd = new SqlCommand("SELECT RoomName FROM Room", con);
-            string RoomName;
-            try
-            {
-                con.Open();
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                  RoomName  = reader["RoomName"].ToString();
-                    rooms.Add(RoomName);
-                } 
-
-            }
-            catch (Exception ex)
-            {
-                message = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-            return rooms;
-        }
-
-        public int InsertCustomer(Customer_Model c)
-        {
             int count = 0;
-
-            Connection();
-            SqlCommand cmd = new SqlCommand("uspInsertIntoCustomer", con);
+            SqlCommand cmd = new SqlCommand("uspInsertIntoBooking", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@email", c.Email);
-            cmd.Parameters.AddWithValue("@first", c.FirstName);
-            cmd.Parameters.AddWithValue("@last", c.LastName);            
-            cmd.Parameters.AddWithValue("@phone", c.Phone);
-            cmd.Parameters.AddWithValue("@pass", c.Password);
+            cmd.Parameters.AddWithValue("@Email", booking.Email);
+            cmd.Parameters.AddWithValue("@RoomName", booking.RoomName);
+            cmd.Parameters.AddWithValue("@ArrivalDate", booking.ArrivalDate);
+            cmd.Parameters.AddWithValue("@DepartureDate", booking.DepartureDate);
+            cmd.Parameters.AddWithValue("@CardHolderName", booking.CardHolderName);
+            cmd.Parameters.AddWithValue("@CardType", booking.CardType);
+            cmd.Parameters.AddWithValue("@CardNumber", booking.CreditCardNumber);
+            cmd.Parameters.AddWithValue("@CardExpiry", booking.ExpiryDate);
+            cmd.Parameters.AddWithValue("@SecurityNumber", booking.SecurityNumber);
+
             try
             {
                 con.Open();
@@ -68,17 +43,15 @@ namespace BayviewHouse.Models
             }
             catch (Exception ex)
             {
-
                 message = ex.Message;
+
             }
             finally
             {
                 con.Close();
             }
             return count;
-
         }
-
         public List<Tour_Model> PopulateTours()
         {
             List<Tour_Model> tours = new List<Tour_Model>();
@@ -114,40 +87,68 @@ namespace BayviewHouse.Models
             }
             return tours;
         }
-
-        public int InsertBooking(Booking_Model booking)
+        public List<string> PopulateRooms()
         {
+            List<string> rooms = new List<string>();
             Connection();
-            int count = 0;
-            SqlCommand cmd = new SqlCommand("uspInsertIntoBooking", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Email", booking.Email);
-            cmd.Parameters.AddWithValue("@RoomName", booking.RoomName);
-            cmd.Parameters.AddWithValue("@ArrivalDate", booking.ArrivalDate);
-            cmd.Parameters.AddWithValue("@DepartureDate", booking.DepartureDate);
-            cmd.Parameters.AddWithValue("@CardHolderName", booking.CardHolderName);
-            cmd.Parameters.AddWithValue("@CardType", booking.CardType);
-            cmd.Parameters.AddWithValue("@CardNumber", booking.CreditCardNumber);
-            cmd.Parameters.AddWithValue("@CardExpiry", booking.ExpiryDate);
-            cmd.Parameters.AddWithValue("@SecurityNumber", booking.SecurityNumber);
-
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("SELECT RoomName FROM Room", con);
+            string RoomName;
             try
             {
                 con.Open();
-                count = cmd.ExecuteNonQuery();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    RoomName = reader["RoomName"].ToString();
+                    rooms.Add(RoomName);
+                }
 
             }
             catch (Exception ex)
             {
                 message = ex.Message;
-
             }
             finally
             {
                 con.Close();
             }
-            return count;
+            return rooms;
         }
+
+        public List<Booking_Model> ShowAllBookings()
+        {
+        Connection();
+        SqlDataReader reader;
+        List<Booking_Model> list = new List<Booking_Model>();
+        SqlCommand cmd = new SqlCommand("uspShowAllBookings", con);
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Booking_Model booking = new Booking_Model();
+                    booking.BookingId = int.Parse(reader["BookingID"].ToString());
+                    booking.Email = reader["Email"].ToString();
+                    booking.RoomName = reader["RoomName"].ToString();
+                    booking.ArrivalDate = DateTime.Parse(reader["ArrivalDate"].ToString());
+                    booking.DepartureDate = DateTime.Parse(reader["DepartureDate"].ToString());
+                    list.Add(booking);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = "Error " + ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return list;
+        }
+#endregion
+#region register/login
         public string CheckLogin(Customer_Model c)
         {
             c.FirstName = null;
@@ -176,5 +177,36 @@ namespace BayviewHouse.Models
             }
             return c.FirstName;
         }
-    }   
+        public int InsertCustomer(Customer_Model c)
+        {
+            int count = 0;
+
+            Connection();
+            SqlCommand cmd = new SqlCommand("uspInsertIntoCustomer", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@email", c.Email);
+            cmd.Parameters.AddWithValue("@first", c.FirstName);
+            cmd.Parameters.AddWithValue("@last", c.LastName);
+            cmd.Parameters.AddWithValue("@phone", c.Phone);
+            cmd.Parameters.AddWithValue("@pass", c.Password);
+            try
+            {
+                con.Open();
+                count = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+
+        }
+#endregion
+    }
 }
