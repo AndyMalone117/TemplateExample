@@ -120,7 +120,6 @@ namespace BayviewHouse.Models
         {
         Connection();
         SqlDataReader reader;
-
         List<Booking_Model> list = new List<Booking_Model>();
         SqlCommand cmd = new SqlCommand("uspShowAllBookings", con);
             try
@@ -209,7 +208,5 @@ namespace BayviewHouse.Models
 
         }
 #endregion
-
-
     }
 }
