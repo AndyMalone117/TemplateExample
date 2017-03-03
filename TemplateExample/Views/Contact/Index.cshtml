@@ -43,15 +43,8 @@
                     @Html.TextAreaFor(c => c.Comments, new { @rows = 4, @cols = 50 })
                 </p>
 
-
-            <label for="type">* Feedback Topic</label><br />
-            <select name="Topic" id="type">
-                <option value="General Feedback">General Feedback</option>
-                <option value="Reservation Feedback">Reseravtion Feedback</option>
-                <option value="Tour Booking Feedback">Tour Booking Feedback</option>
-                <option value="Culinary Feedback"> Kitchen Feedback</option>
-                <option value="Other">Other</option>
-            </select><br><br />
+            @Html.LabelFor(c => c.Topic)<br />
+            @Html.DropDownListFor(c => c.Topic, new SelectList(new[] { "General", "Reseravation", "Tours", "Culinary"}))<br />
 
             <p>
                 <label for="Stay">Would you stay again?</label>
