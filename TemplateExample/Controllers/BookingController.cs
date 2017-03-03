@@ -84,6 +84,7 @@ namespace BayviewHouse.Controllers
     {
         private static int[] userInput;
         //test
+        //test2
 
         public static void cleanInput(string input) => userInput = input.Where(_ => !char.Equals(_, ' ') && char.IsDigit(_)).Reverse()
             .Select(_ => int.Parse(_.ToString())).ToArray();
