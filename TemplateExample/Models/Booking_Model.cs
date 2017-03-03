@@ -22,7 +22,7 @@ namespace BayviewHouse.Models
         public string Email { get; set; }
 
         [Display(Name = "Room Name")]
-        [Required(ErrorMessage ="Room Selection Required")]
+        //[Required(ErrorMessage ="Room Selection Required")]
         public string RoomName { get; set; }
 
         [Display(Name = "Arrival Date")]
@@ -34,8 +34,8 @@ namespace BayviewHouse.Models
         public DateTime? DepartureDate { get; set; }
 
         [Display(Name = "Card Holder Name")]
-        //[Required(ErrorMessage ="Card Holder Name Required")]
-        //[RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Invalid Card Holder Name")]
+        [Required(ErrorMessage ="Card Holder Name Required")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Invalid Card Holder Name")]
         public string CardHolderName { get; set; }
 
         [Display(Name = "Card Type")]
@@ -43,8 +43,8 @@ namespace BayviewHouse.Models
         public string CardType { get; set; }
 
         [Display(Name = "Card Number")]
-        //[Required(ErrorMessage ="Card Number Required")]
-        //[RegularExpression("^[0-9]{16}+$", ErrorMessage = "Invalid Card Number")]
+        [Required(ErrorMessage ="Card Number Required")]
+        //[RegularExpression(@"^\d{1,2}$", ErrorMessage = "Invalid Card Number")]
         public string CreditCardNumber { get; set; }
 
         [Display(Name = "Expiry Date")]
@@ -52,7 +52,7 @@ namespace BayviewHouse.Models
         public DateTime ExpiryDate { get; set; }
 
         [Display(Name = "CVV")]
-        //[Required(ErrorMessage ="CVV Security Number Required")]
+        [Required(ErrorMessage ="CVV Security Number Required")]
         //[RegularExpression("^[0-9]{3}+$", ErrorMessage ="Invalid CVV Security Number")]
         public int SecurityNumber { get; set; }    
  
