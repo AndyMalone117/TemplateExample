@@ -46,7 +46,7 @@ namespace BayviewHouse.Models
 
         [Display(Name = "Card Number")]
         [Required(ErrorMessage ="Card Number Required")]
-
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Invalid Card Number")]
         public string CreditCardNumber { get; set; }
 
         [Display(Name = "Expiry Date")]

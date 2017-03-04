@@ -25,9 +25,6 @@ namespace BayviewHouse.Controllers
         }
         private List<string> GetRoomNamesList()
         {
-            //dao = new DAO();
-
-
             List<string> rooms = dao.PopulateRooms();
             return rooms;
         }
