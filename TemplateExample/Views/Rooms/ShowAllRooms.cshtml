@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BayviewHouse.Models.Room_Model>
+
+
+@{
+    ViewBag.Title = "ShowAllRooms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="table">
+    <h2>Room Rate</h2>
+    <table class="feedbackTable">
+        <thead style="background-color:skyblue">
+            <tr>
+                <th>Room Name</th>
+                <th>Room Type</th>
+                <th>Max Capacity</th>
+                <th>Price (Euro)</th>
+            </tr>
+        </thead>
+
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.RoomName</td>
+                <td>@i.RoomType</td>
+                <td>@i.MaxCapacity</td>
+                <td>@i.PricePerNight</td>
+
+        </tr>
+        }
+
+    </table>
+    </div>
+    <br />
+ <div class="table">
+    @Html.ActionLink("Back to BayView Staff Page ", "Index", "Staff")
+</div>
+

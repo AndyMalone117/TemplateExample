@@ -64,5 +64,14 @@ namespace BayviewHouse.Controllers
             }
             else return View("Index", customerTour);
         }
+        public ActionResult ShowAll()
+        {
+            //List<Booking_Model> bookingList = new List<Booking_Model>();
+            dao = new DAO();
+            List<Tour_Model> toursList = dao.ShowAllTours();
+            return View(toursList);
+        }
     }
+
+
 }

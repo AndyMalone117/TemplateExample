@@ -5,19 +5,30 @@
 }
 <br />
 <br />
-<h2>Staff Page<span style="float:right; padding-right:5em;">@Session["Name"], you are logged in</span><br /></h2>
+<div class="table">
+    <h2>Staff Page<span style="float:right; padding-right:5em;">@Session["Name"], is logged in.</span><br /></h2>
 
+ 
+        @if (@Session["Name"].ToString() == "Management")
+        {
+           <h3>Rooms and Tours</h3>
+            <p>@Html.ActionLink("Show Room Rates", "ShowAllRooms", "Rooms")</p>
+            <p>@Html.ActionLink("Show Tour Offerings", "ShowAll", "Tours")</p>
+            <h3>Bookings</h3>
+            <p>@Html.ActionLink("Show Bookings", "ShowAll", "Booking")</p>
+            <h3>FeedBack</h3>
+            <p>@Html.ActionLink("Show User Feedback", "Feedback", "Contact")</p>
+            
+        }
 
-@if (@Session["Name"].ToString() == "Management")
-{
-<p>@Html.ActionLink("Show User Feedback", "Feedback", "Contact")</p>
-<p>@Html.ActionLink("Show Bookings", "ShowAll", "Booking")</p>
-}
-
-@if (@Session["Name"].ToString() == "Staff")
-{
-    <p>@Html.ActionLink("Show Bookings", "Bookings", "Contact")</p>
-}
-
+        @if (@Session["Name"].ToString() == "Staff")
+        {
+            <h3>Rooms and Tours</h3>
+            <p>@Html.ActionLink("Show Room Rates", "ShowAllRooms", "Rooms")</p>
+            <p>@Html.ActionLink("Show Tour Offerings", "ShowAll", "Tours")</p>
+            <h3>Bookings</h3>
+            <p>@Html.ActionLink("Show Bookings", "ShowAll", "Booking")</p>
+        }
+    </div>
 
 

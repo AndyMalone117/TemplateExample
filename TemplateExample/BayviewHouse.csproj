@@ -149,6 +149,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\SitemapController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
@@ -197,8 +198,9 @@
     <Content Include="Views\Contact\Feedback.cshtml">
       <BrowseToURL>~/Contact/ShowAll</BrowseToURL>
     </Content>
-    <Content Include="Views\Booking\Booking.cshtml" />
     <Content Include="Views\Booking\ShowAll.cshtml" />
+    <Content Include="Views\Tours\ShowAll.cshtml" />
+    <Content Include="Views\Rooms\ShowAllRooms.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

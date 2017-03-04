@@ -25,7 +25,8 @@ namespace BayviewHouse.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return View("../Home/Index");
+            //return View("../Home/Index");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -62,7 +63,7 @@ namespace BayviewHouse.Controllers
 
                     Session.Add("Name", customer.FirstName);
                     Session.Add("Email", customer.Email);
-                    Session["Name"] = "Customer";
+                    Session["Name"] = "Management";
                     return RedirectToAction("Index", "Booking");
 
                 }

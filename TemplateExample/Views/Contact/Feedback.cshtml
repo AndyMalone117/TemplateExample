@@ -7,41 +7,40 @@
 }
 
 <br />
-<h2>Feedback View Page</h2>
+<div class="table">
+    <h2>Feedback View Page</h2>
+    <table class="feedbackTable">
+        <thead style="background-color:yellowgreen">
+            <tr>
+                <th>Customer Name</th>
+                <th>Customer Email</th>
+                <th>Booking Ref</th>
+                <th>Topic</th>
+                <th>Comments</th>
+                <th>Would customer Stay Again?</th>
+                <th>Would customer Recommend?</th>
+                <th>Feedback Date</th>
+            </tr>
+        </thead>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.Name</td>
+                <td>@i.Email</td>
+                <td>@i.BookingRef</td>
+                <td>@i.Topic</td>
+                <td>@i.Comments</td>
+                <td>@i.Stay</td>
+                <td>@i.Recommend</td>
+                <td>@i.Time</td>
+            </tr>
+        }
 
-<table class="feedbackTable">
-    <thead style="background-color:yellowgreen">
-        <tr>
-            <th>Customer Name</th>
-            <th>Customer Email</th>
-            <th>Booking Ref</th>
-            <th>Topic</th>
-            <th>Comments</th>
-            <th>Would customer Stay Again?</th>
-            <th>Would customer Recommend?</th>
-            <th>Feedback Date</th>
-        </tr>
-    </thead>
-
-
-    @foreach (var i in Model)
-    {
-    <tr>
-        <td>@i.Name</td>
-        <td>@i.Email</td>
-        <td>@i.BookingRef</td>
-        <td>@i.Topic</td>
-        <td>@i.Comments</td>
-        <td>@i.Stay</td>
-        <td>@i.Recommend</td>
-        <td>@i.Time</td>
-    </tr>
-    }
-
-</table>
-<br />
-@Html.ActionLink("Back to BayView Staff Page ", "Index", "Staff")
-
-
+    </table>
+</div>
+    <br />
+<div class="table">
+    @Html.ActionLink("Back to BayView Staff Page ", "Index", "Staff")
+</div>
 
 
