@@ -116,19 +116,11 @@ namespace BayviewHouse.Models
             return rooms;
         }
 
-        public List<Booking_Model> ShowAllBookings()
+        public List<Booking_Model> ShowAll()//changed
         {
         Connection();
         SqlDataReader reader;
         List<Booking_Model> bookingList = new List<Booking_Model>();
-            //Booking_Model model1 = new Booking_Model();
-            //model1.BookingId = 1234;
-            //model1.Email = null;
-            //model1.RoomName = null;
-            //model1.ArrivalDate = null;
-            //model1.DepartureDate = null;
-            //bookingList.Add(model1);
-            //bookingList.Add(new Booking_Model(1234, null, null, null, null,null, null, null, null, null));
         SqlCommand cmd = new SqlCommand("uspShowAllBookings", con);
         cmd.CommandType = CommandType.StoredProcedure;
 

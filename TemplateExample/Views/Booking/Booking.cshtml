@@ -23,24 +23,26 @@
 
 
     </tr>
-    @foreach (var booking in Model)
+   
+    @foreach (var i in Model)
     {
        
             //<input type="text" name="code" value=@booking.BookingId width="200" hidden />
             <tr>
-                <td>@booking.BookingId</td>
-                <td>@booking.Email</td>
-                <td>@booking.RoomName</td>
-                <td>@booking.ArrivalDate</td>
-                <td>@booking.DepartureDate</td>
-                <td>@booking.CardHolderName</td>
-                <td>@booking.CardType</td>
-                <td>@booking.CreditCardNumber</td>
-                <td>@booking.ExpiryDate</td>
-                <td>@booking.SecurityNumber</td>
+                <td>@i.BookingId</td>
+                <td>@i.Email</td>
+                <td>@i.RoomName</td>
+                <td>@i.ArrivalDate</td>
+                <td>@i.DepartureDate</td>
+                <td>@i.CardHolderName</td>
+                <td>@i.CardType</td>
+                <td>@i.CreditCardNumber</td>
+                <td>@i.ExpiryDate</td>
+                <td>@i.SecurityNumber</td>
             </tr>
         
     }
+    
 </table>
 
 

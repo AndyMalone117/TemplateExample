@@ -14,7 +14,7 @@ namespace BayviewHouse.Controllers
 
     public class BookingController : Controller
     {
-
+        DAO dao = new DAO();
 
         // GET: Booking
         public ActionResult Index()
@@ -62,6 +62,12 @@ namespace BayviewHouse.Controllers
 
             }
             else return View("Index", booking);
+        }
+
+        public ActionResult ShowAll()
+        {
+            List<Booking_Model> bookingList = new List<Booking_Model>();
+            return View(bookingList);
         }
        
         private static int[] userInput; 
