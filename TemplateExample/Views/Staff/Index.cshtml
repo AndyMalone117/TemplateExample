@@ -11,7 +11,7 @@
 @if (@Session["Name"].ToString() == "Management")
 {
 <p>@Html.ActionLink("Show User Feedback", "Feedback", "Contact")</p>
-<p>@Html.ActionLink("Show Bookings", "Booking", "Booking")</p>
+<p>@Html.ActionLink("Show Bookings", "ShowAll", "Booking")</p>
 }
 
 @if (@Session["Name"].ToString() == "Staff")

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BayviewHouse.Models.Booking_Model>
+@{
+    ViewBag.Title = "ShowAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h2>All Bookings</h2>
+<table border="1">
+    <tr>
+        <th><p>Booking ID</p></th>
+        <th><p>Customer Email</p></th>
+        <th><p>Room Name</p></th>
+        <th><p>Arrival Date </p></th>
+        <th><p>Departure Date </p></th>
+        <th><p>Card Holder Name</p></th>
+        <th><p>Card Type</p></th>
+        <th><p>Card Number</p></th>
+        <th><p>Expiry Date </p></th>
+        <th><p>Security Number </p></th>
+
+
+    </tr>
+
+    @foreach (var i in Model)
+    {
+
+        //<input type="text" name="code" value=@booking.BookingId width="200" hidden />
+        <tr>
+            <td>@i.BookingId</td>
+            <td>@i.Email</td>
+            <td>@i.RoomName</td>
+            <td>@i.ArrivalDate</td>
+            <td>@i.DepartureDate</td>
+            <td>@i.CardHolderName</td>
+            <td>@i.CardType</td>
+            <td>@i.CreditCardNumber</td>
+            <td>@i.ExpiryDate</td>
+            <td>@i.SecurityNumber</td>
+        </tr>
+
+    }
+
+</table>
+
+
+
