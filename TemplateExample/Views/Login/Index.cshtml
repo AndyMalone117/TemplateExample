@@ -9,8 +9,10 @@
 <div class="content" style="padding-left:2em;  padding-bottom:15em; padding-top:5em;">
 
     <h2>BayView Bed&Breakfast Login Page</h2>
-            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
-            {
+      
+            @*@using (Html.BeginForm("Login", "Login", FormMethod.Post))*@
+            @using (Ajax.BeginForm("Login", "Login", new AjaxOptions { UpdateTargetId = "Login", HttpMethod = "Post" }))
+                {
                 <span style="color:red">
                     @Html.ValidationSummary()
                 </span>
@@ -28,12 +30,12 @@
                     {
                         new SelectListItem() { Text = "Staff", Value="Staff"},
                         new SelectListItem() {Text = "Customer", Value="Customer"},
-                       
+
                         })
-                
-                    
+
+
                     <input id="Submit1" type="submit" value="Login" />
-                 
+
             }
 
         </div>
