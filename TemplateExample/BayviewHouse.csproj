@@ -194,8 +194,11 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\Status.cshtml" />
     <Content Include="Views\Contact\Comments.cshtml" />
-    <Content Include="Views\Contact\Feedback.cshtml" />
+    <Content Include="Views\Contact\Feedback.cshtml">
+      <BrowseToURL>~/Contact/ShowAll</BrowseToURL>
+    </Content>
     <Content Include="Views\Booking\Booking.cshtml" />
+    <Content Include="Views\Booking\ShowAll.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

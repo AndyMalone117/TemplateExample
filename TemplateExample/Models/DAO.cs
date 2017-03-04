@@ -18,6 +18,35 @@ namespace BayviewHouse.Models
         {
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBCon"].ConnectionString);
         }
+        public int InsertCustomerTour(CustomerTour_Model customerTour)
+        {
+            Connection();
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("uspInsertIntoCustomerTour", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Email", customerTour.Email);
+            cmd.Parameters.AddWithValue("@TourArea", customerTour.TourArea);
+            cmd.Parameters.AddWithValue("@DateOfTour", customerTour.DateOfTour);
+            cmd.Parameters.AddWithValue("@NumberOfPeople", customerTour.NumberOfPeople);
+            try
+            {
+                con.Open();
+                count = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+
+        }
+
 #region booking
         public int InsertBooking(Booking_Model booking)
         {
@@ -69,10 +98,7 @@ namespace BayviewHouse.Models
                     Tour_Model tour = new Tour_Model();
                     tour.TourArea = (reader["TourArea"].ToString());
                     tour.CompanyID = int.Parse(reader["CompanyID"].ToString());
-                    tour.TourID = int.Parse(reader["TourID"].ToString());
                     tour.TimeDurationMins = int.Parse(reader["TimeDurationMins"].ToString());
-                    tour.PricePerPerson = decimal.Parse(reader["PricePerPerson"].ToString());
-
                     tours.Add(tour);
                 }
 
@@ -115,6 +141,8 @@ namespace BayviewHouse.Models
             }
             return rooms;
         }
+
+
 
         public List<Booking_Model> ShowAll()//changed
         {
