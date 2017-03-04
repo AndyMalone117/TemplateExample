@@ -11,9 +11,9 @@ using System.Configuration;
 
 namespace BayviewHouse.Controllers
 {
+
     public class BookingController : Controller
     {
-        DAO dao;
 
 
         // GET: Booking
@@ -25,7 +25,7 @@ namespace BayviewHouse.Controllers
         }
         private List<string> GetRoomNamesList()
         {
-            dao = new DAO();
+            //dao = new DAO();
 
 
             List<string> rooms = dao.PopulateRooms();
@@ -34,6 +34,7 @@ namespace BayviewHouse.Controllers
         [HttpGet]
         public ActionResult Booking()
         {
+
             return View();
         }
         [HttpPost]
@@ -62,13 +63,7 @@ namespace BayviewHouse.Controllers
             }
             else return View("Index", booking);
         }
-        public ActionResult ShowAll()
-        {
-
-            List<Booking_Model> list = dao.ShowAllBookings();
-
-            return View(list);
-        }
+       
         private static int[] userInput; 
 
         //clears the input of potential formatting errors

@@ -1,6 +1,5 @@
-﻿@using BayviewHouse.Models
-@model IEnumerable<Booking_Model>
-
+﻿
+@model IEnumerable<BayviewHouse.Models.Booking_Model>
 
 @{
     ViewBag.Title = "Booking";
@@ -16,23 +15,32 @@
         <th><p>Room Name</p></th>
         <th><p>Arrival Date </p></th>
         <th><p>Departure Date </p></th>
+        <th><p>Card Holder Name</p></th>
+        <th><p>Card Type</p></th>
+        <th><p>Card Number</p></th>
+        <th><p>Expiry Date </p></th>
+        <th><p>Security Number </p></th>
+
 
     </tr>
     @foreach (var booking in Model)
     {
-
-
-        using (Html.BeginForm("AddBooking", "Index", FormMethod.Post))
-        {
-            <input type="text" name="code" value=@booking.BookingId width="200" hidden />
+       
+            //<input type="text" name="code" value=@booking.BookingId width="200" hidden />
             <tr>
-                <td><p>@booking.BookingId</p></td>
-                <td><p>@booking.Email</p></td>
-                <td><p>@booking.RoomName</p></td>
-                <td><p>@booking.ArrivalDate</p></td>
-                <td><p>@booking.DepartureDate</p></td>
+                <td>@booking.BookingId</td>
+                <td>@booking.Email</td>
+                <td>@booking.RoomName</td>
+                <td>@booking.ArrivalDate</td>
+                <td>@booking.DepartureDate</td>
+                <td>@booking.CardHolderName</td>
+                <td>@booking.CardType</td>
+                <td>@booking.CreditCardNumber</td>
+                <td>@booking.ExpiryDate</td>
+                <td>@booking.SecurityNumber</td>
             </tr>
-        }
+        
     }
 </table>
+
 
