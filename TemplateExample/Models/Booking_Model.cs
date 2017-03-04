@@ -10,6 +10,7 @@ using static BayviewHouse.Controllers.BookingController;
 
 namespace BayviewHouse.Models
 {
+  
     public class Booking_Model
     {
         [Display(Name = "Booking ID")]
@@ -34,7 +35,6 @@ namespace BayviewHouse.Models
 
         [Display(Name = "Card Holder Name")]
         [Required(ErrorMessage ="Card Holder Name Required")]
-        //[RegularExpression("^[a-zA-Z]+$", ErrorMessage = "Invalid Card Holder Name")]
         public string CardHolderName { get; set; }
 
         [Display(Name = "Card Type")]
