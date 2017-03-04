@@ -47,5 +47,14 @@ namespace BayviewHouse.Controllers
 
             return tourPrices;
         }
+        public ActionResult ShowAll()
+        {
+            //List<Booking_Model> bookingList = new List<Booking_Model>();
+            dao = new DAO();
+            List<Tour_Model> toursList = dao.ShowAllTours();
+            return View(toursList);
+        }
     }
+
+
 }

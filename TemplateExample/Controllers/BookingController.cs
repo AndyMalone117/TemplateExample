@@ -66,12 +66,13 @@ namespace BayviewHouse.Controllers
 
         public ActionResult ShowAll()
         {
-            //List<Booking_Model> bookingList = new List<Booking_Model>();
-
+        
             List<Booking_Model> bookingList = dao.ShowAll();
             return View(bookingList);
         }
-       
+
+
+
         private static int[] userInput; 
 
         //clears the input of potential formatting errors

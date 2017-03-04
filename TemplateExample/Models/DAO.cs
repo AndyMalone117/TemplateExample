@@ -154,8 +154,78 @@ namespace BayviewHouse.Models
             }
             return bookingList;
         }
-#endregion
-#region register/login
+
+        public List<Tour_Model> ShowAllTours()//New
+        {
+            Connection();
+            SqlDataReader reader;
+            List<Tour_Model> toursList = new List<Tour_Model>();
+            SqlCommand cmd = new SqlCommand("uspShowAllTours", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Tour_Model tours = new Tour_Model();
+                    tours.TourID = int.Parse(reader["TourID"].ToString());
+                    tours.CompanyID = int.Parse(reader["CompanyID"].ToString());
+                    tours.TourArea = reader["TourArea"].ToString();
+                    tours.TimeDurationMins = int.Parse(reader["TimeDurationMins"].ToString());
+                    tours.PricePerPerson = decimal.Parse(reader["PricePerPerson"].ToString());
+
+                    toursList.Add(tours);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = "Error " + ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return toursList;
+        }
+
+        public List<Room_Model> ShowAllRooms()//New
+        {
+            Connection();
+            SqlDataReader reader;
+            List<Room_Model> roomsList = new List<Room_Model>();
+            SqlCommand cmd = new SqlCommand("uspShowAllRooms", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Room_Model rooms = new Room_Model();
+                    rooms.RoomName = reader["RoomName"].ToString();
+                    rooms.RoomType = reader["RoomType"].ToString();
+                    rooms.MaxCapacity = int.Parse(reader["MaxCapacity"].ToString());
+                    rooms.PricePerNight = decimal.Parse(reader["PricePerNight"].ToString());
+                    
+                    roomsList.Add(rooms);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = "Error " + ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return roomsList;
+        }
+
+        #endregion
+        #region register/login
         public string CheckLogin(Customer_Model c)
         {
             c.FirstName = null;
