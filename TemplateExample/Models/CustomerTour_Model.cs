@@ -12,9 +12,8 @@ namespace BayviewHouse.Models
         [Display(Name = "Tour Name")]
         public string TourArea { get; set; }
 
+        [Display(Name = "Email")]
         public string Email { get; set; }
-
-        public int CustomerID { get; set; }
 
         [Display(Name = "Tour Date")]
         [DataType(DataType.Date)]
