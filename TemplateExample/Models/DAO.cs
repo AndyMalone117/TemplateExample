@@ -18,14 +18,15 @@ namespace BayviewHouse.Models
         {
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBCon"].ConnectionString);
         }
+        #region Tours
         public int InsertCustomerTour(CustomerTour_Model customerTour)
         {
             Connection();
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspInsertIntoCustomerTour", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Email", customerTour.Email);
             cmd.Parameters.AddWithValue("@TourArea", customerTour.TourArea);
+            cmd.Parameters.AddWithValue("@Email", customerTour.Email);
             cmd.Parameters.AddWithValue("@DateOfTour", customerTour.DateOfTour);
             cmd.Parameters.AddWithValue("@NumberOfPeople", customerTour.NumberOfPeople);
             try
@@ -46,8 +47,9 @@ namespace BayviewHouse.Models
             return count;
 
         }
+        #endregion
 
-#region booking
+        #region booking
         public int InsertBooking(Booking_Model booking)
         {
             Connection();
