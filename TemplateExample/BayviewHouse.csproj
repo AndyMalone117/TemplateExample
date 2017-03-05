@@ -127,6 +127,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Scripts\JavaScript.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery-ui.min.css" />
     <Content Include="Scripts\jquery-ui.min.js" />
