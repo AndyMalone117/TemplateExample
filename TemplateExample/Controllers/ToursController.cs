@@ -36,7 +36,7 @@ namespace BayviewHouse.Controllers
             return tourTitles;
         }
         [HttpGet]
-        public ActionResult CustomerTour()
+        public ActionResult AddCustomerTour()
         {
 
             return View();
@@ -44,23 +44,15 @@ namespace BayviewHouse.Controllers
         [HttpPost]
         public ActionResult AddCustomerTour(CustomerTour_Model customerTour)
         {
-            ViewData["TourArea"] = GetTourTitles();
-
             int count = 0;
             if (ModelState.IsValid)
             {
                 count = dao.InsertCustomerTour(customerTour);
                 if (count == 1)
-                {
-                    TempData["Message"] = "Tour Booking Confirmed";
-                    return RedirectToAction("Index");
-                }
+                    ViewData["message"] = "Record inserted successfully";
                 else
-                {
                     ViewData["message"] = dao.message;
-                }
                 return View("Index");
-
             }
             else return View("Index", customerTour);
         }
