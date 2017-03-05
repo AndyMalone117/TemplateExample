@@ -8,6 +8,14 @@
         ViewBag.Title = "Index";
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
+
+<script language="javascript">
+    function openPopupWindow() {
+        window.open('/Booking/SubmitPage/', 'Page', "width=300, height=200");
+        return false;
+    }
+</script>
+
     <div id="page_super_top">
         <div id="page_top">
             <a href="#content"><img class="scroll" src="images/scroll.png" alt="scroll"></a>
@@ -55,7 +63,7 @@
                     @Html.LabelFor(m => m.ExpiryDate)<br />
                     @Html.EditorFor(m => m.ExpiryDate)<br />
 
-                <input id="Submit1" type="submit" value="Add" />
+                <input id="Submit1" type="submit" value="Add" onclick="javascript: return openPopupWindow();" />
             </div>
         </fieldset>
         }     

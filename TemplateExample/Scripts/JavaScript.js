@@ -1,6 +1,4 @@
-﻿/*Javascript to scroll to the #content section of 
-the page at a speed of 1 second.*/
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $(function () {
         $('a[href="#content"]').click(function () {
             var target = $(this.hash);
@@ -12,8 +10,7 @@ $(document).ready(function () {
             }
         });
     });
-    /*This adds a class .hovercolor to the FAQ on mouseover 
-    and removes it on mouseout and click toggles at .3 seconds.*/
+
     $(document).ready(function () {
         $(".question").mouseover(function () {
             $(this).addClass("hovercolor");
@@ -28,7 +25,6 @@ $(document).ready(function () {
     });
 
 });
-//javascript for mobile nav bar.
 function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -39,13 +35,7 @@ function myFunction() {
 
     $("ul a img").hide();
 }
-/*This funtion toggles the detail form to appear once 
-check availability button is clicked at 0.6 seconds.*/
-$(document).ready(function () {
-    $("#check").click(function () {
-        $("#form2").slideToggle(600).show();
-    });
-})
+
 function book(message) {
     alert(message);
 }
