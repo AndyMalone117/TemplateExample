@@ -23,10 +23,12 @@
 <div id="content">
     <hr>
     <h2 class="about_top">Book A Tour</h2>
-    <form class="form1">
+   
         @using (Html.BeginForm("AddCustomerTour", "Tours", FormMethod.Post))
         {
-        @Html.ValidationSummary();
+        <span style="color:red">
+            @Html.ValidationSummary()
+        </span>
         <fieldset>
             <legend>Book a tour</legend>
             <div id="datecheck">
@@ -43,7 +45,7 @@
 
         </fieldset>
         }
-    </form>
+    
     <hr>
     <h2 class="about_top">Tours On Offer</h2>
     <p class="about_text">Gillian Moore B&B provides a number of discounted tours to its guests. Guests can choose to enjoy hiking over hills of Connemara, visiting the magical Cliffs of Moher, capturings the sights on the Aran Islands, or soaking up the atmosphere of Galway city. See below for further details on tours and related prices.</p>
