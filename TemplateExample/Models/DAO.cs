@@ -18,7 +18,7 @@ namespace BayviewHouse.Models
         {
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBCon"].ConnectionString);
         }
-        #region Tours
+
         public int InsertCustomerTour(CustomerTour_Model customerTour)
         {
             Connection();
@@ -200,11 +200,11 @@ namespace BayviewHouse.Models
                 while (reader.Read())
                 {
                     Tour_Model tours = new Tour_Model();
-                    tours.TourID = int.Parse(reader["TourID"].ToString());
+                    //tours.TourID = int.Parse(reader["TourID"].ToString());
                     tours.CompanyID = int.Parse(reader["CompanyID"].ToString());
                     tours.TourArea = reader["TourArea"].ToString();
                     tours.TimeDurationMins = int.Parse(reader["TimeDurationMins"].ToString());
-                    tours.PricePerPerson = decimal.Parse(reader["PricePerPerson"].ToString());
+                    tours.PricePerPerson = decimal.Parse(reader["Price"].ToString());
 
                     toursList.Add(tours);
                 }

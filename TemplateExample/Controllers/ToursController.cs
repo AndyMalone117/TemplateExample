@@ -41,12 +41,13 @@ namespace BayviewHouse.Controllers
 
             return View();
         }
+
+
         [HttpPost]
         public ActionResult AddCustomerTour(CustomerTour_Model customerTour)
-        {
 
             ViewData["TourArea"] = GetTourTitles();
-
+            
             int count = 0;
             if (ModelState.IsValid)
             {
