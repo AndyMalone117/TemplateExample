@@ -47,7 +47,7 @@ namespace BayviewHouse.Controllers
         public ActionResult AddCustomerTour(CustomerTour_Model customerTour)
 
             ViewData["TourArea"] = GetTourTitles();
-            
+            dao = new DAO();
             int count = 0;
             if (ModelState.IsValid)
             {
@@ -60,12 +60,23 @@ namespace BayviewHouse.Controllers
             }
             else return View("Index", customerTour);
         }
+
+
         public ActionResult ShowAll()
         {
             //List<Booking_Model> bookingList = new List<Booking_Model>();
             dao = new DAO();
             List<Tour_Model> toursList = dao.ShowAllTours();
             return View(toursList);
+        }
+
+
+        public ActionResult ShowAllToursBooked()
+        {
+            //List<Booking_Model> bookingList = new List<Booking_Model>();
+            dao = new DAO();
+            List<CustomerTour_Model> toursbookedList = dao.ShowAllBookedTours();
+            return View(toursbookedList);
         }
     }
 

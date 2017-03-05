@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BayviewHouse.Models.CustomerTour_Model>
+@{
+    ViewBag.Title = "ShowAllToursBooked";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+
+<div class="table">
+    <h2>Current Tour Bookings</h2>
+    <table class="feedbackTable">
+        <thead style="background-color:springgreen">
+            <tr>
+                <th><p>Tour Area</p></th>
+                <th><p>Customer Email</p></th>
+                <th><p>Tour Date</p></th>
+                <th><p>Number of Guest</p></th>
+            </tr>
+        </thead>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.TourArea</td>
+                <td>@i.Email</td>
+                <td>@i.DateOfTour</td>
+                <td>@i.NumberOfPeople</td>
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+<div class="table">
+    @Html.ActionLink("Back to BayView Staff Page ", "Index", "Staff")
+</div>
+

@@ -220,6 +220,40 @@ namespace BayviewHouse.Models
             return toursList;
         }
 
+        public List<CustomerTour_Model> ShowAllBookedTours()//New
+        {
+            Connection();
+            SqlDataReader reader;
+            List<CustomerTour_Model> toursBookedList = new List<CustomerTour_Model>();
+            SqlCommand cmd = new SqlCommand("uspShowAllCustomerTours", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    CustomerTour_Model toursbooked = new CustomerTour_Model();
+                   
+                    toursbooked.TourArea = reader["TourArea"].ToString();
+                    toursbooked.Email = reader["Email"].ToString();
+                    toursbooked.DateOfTour = DateTime.Parse(reader["DateOfTour"].ToString());
+                    toursbooked.NumberOfPeople = int.Parse(reader["NumberOfPeople"].ToString());
+                    toursBookedList.Add(toursbooked);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = "Error " + ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return toursBookedList;
+        }
+
         public List<Room_Model> ShowAllRooms()//New
         {
             Connection();
