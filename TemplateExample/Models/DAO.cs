@@ -18,7 +18,38 @@ namespace BayviewHouse.Models
         {
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBCon"].ConnectionString);
         }
-#region booking
+        #region Tours
+        public int InsertCustomerTour(CustomerTour_Model customerTour)
+        {
+            Connection();
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("uspInsertIntoCustomerTour", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@TourArea", customerTour.TourArea);
+            cmd.Parameters.AddWithValue("@Email", customerTour.Email);
+            cmd.Parameters.AddWithValue("@DateOfTour", customerTour.DateOfTour);
+            cmd.Parameters.AddWithValue("@NumberOfPeople", customerTour.NumberOfPeople);
+            try
+            {
+                con.Open();
+                count = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+
+        }
+        #endregion
+
+        #region booking
         public int InsertBooking(Booking_Model booking)
         {
             Connection();
@@ -69,10 +100,7 @@ namespace BayviewHouse.Models
                     Tour_Model tour = new Tour_Model();
                     tour.TourArea = (reader["TourArea"].ToString());
                     tour.CompanyID = int.Parse(reader["CompanyID"].ToString());
-                    tour.TourID = int.Parse(reader["TourID"].ToString());
                     tour.TimeDurationMins = int.Parse(reader["TimeDurationMins"].ToString());
-                    tour.PricePerPerson = decimal.Parse(reader["PricePerPerson"].ToString());
-
                     tours.Add(tour);
                 }
 
@@ -116,12 +144,16 @@ namespace BayviewHouse.Models
             return rooms;
         }
 
-        public List<Booking_Model> ShowAllBookings()
+
+
+        public List<Booking_Model> ShowAll()//changed
         {
         Connection();
         SqlDataReader reader;
-        List<Booking_Model> list = new List<Booking_Model>();
+        List<Booking_Model> bookingList = new List<Booking_Model>();
         SqlCommand cmd = new SqlCommand("uspShowAllBookings", con);
+        cmd.CommandType = CommandType.StoredProcedure;
+
             try
             {
                 con.Open();
@@ -134,7 +166,12 @@ namespace BayviewHouse.Models
                     booking.RoomName = reader["RoomName"].ToString();
                     booking.ArrivalDate = DateTime.Parse(reader["ArrivalDate"].ToString());
                     booking.DepartureDate = DateTime.Parse(reader["DepartureDate"].ToString());
-                    list.Add(booking);
+                    booking.CardHolderName = reader["CardHolderName"].ToString();
+                    booking.CardType = reader["CardType"].ToString();
+                    booking.CreditCardNumber = reader["CardNumber"].ToString();
+                    booking.ExpiryDate = DateTime.Parse(reader["CardExpiry"].ToString());
+                    booking.SecurityNumber = int.Parse(reader["SecurityNumber"].ToString());
+                    bookingList.Add(booking);
                 }
             }
             catch (Exception ex)
@@ -145,10 +182,80 @@ namespace BayviewHouse.Models
             {
                 con.Close();
             }
-            return list;
+            return bookingList;
         }
-#endregion
-#region register/login
+
+        public List<Tour_Model> ShowAllTours()//New
+        {
+            Connection();
+            SqlDataReader reader;
+            List<Tour_Model> toursList = new List<Tour_Model>();
+            SqlCommand cmd = new SqlCommand("uspShowAllTours", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Tour_Model tours = new Tour_Model();
+                    tours.TourID = int.Parse(reader["TourID"].ToString());
+                    tours.CompanyID = int.Parse(reader["CompanyID"].ToString());
+                    tours.TourArea = reader["TourArea"].ToString();
+                    tours.TimeDurationMins = int.Parse(reader["TimeDurationMins"].ToString());
+                    tours.PricePerPerson = decimal.Parse(reader["PricePerPerson"].ToString());
+
+                    toursList.Add(tours);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = "Error " + ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return toursList;
+        }
+
+        public List<Room_Model> ShowAllRooms()//New
+        {
+            Connection();
+            SqlDataReader reader;
+            List<Room_Model> roomsList = new List<Room_Model>();
+            SqlCommand cmd = new SqlCommand("uspShowAllRooms", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Room_Model rooms = new Room_Model();
+                    rooms.RoomName = reader["RoomName"].ToString();
+                    rooms.RoomType = reader["RoomType"].ToString();
+                    rooms.MaxCapacity = int.Parse(reader["MaxCapacity"].ToString());
+                    rooms.PricePerNight = decimal.Parse(reader["PricePerNight"].ToString());
+                    
+                    roomsList.Add(rooms);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = "Error " + ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return roomsList;
+        }
+
+        #endregion
+        #region register/login
         public string CheckLogin(Customer_Model c)
         {
             c.FirstName = null;
@@ -176,6 +283,8 @@ namespace BayviewHouse.Models
                 con.Close();
             }
             return c.FirstName;
+
+
         }
         public int InsertCustomer(Customer_Model c)
         {

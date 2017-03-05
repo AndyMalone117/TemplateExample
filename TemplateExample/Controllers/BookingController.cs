@@ -11,10 +11,10 @@ using System.Configuration;
 
 namespace BayviewHouse.Controllers
 {
+
     public class BookingController : Controller
     {
-        DAO dao;
-
+        DAO dao = new DAO();
 
         // GET: Booking
         public ActionResult Index()
@@ -25,15 +25,13 @@ namespace BayviewHouse.Controllers
         }
         private List<string> GetRoomNamesList()
         {
-            dao = new DAO();
-
-
             List<string> rooms = dao.PopulateRooms();
             return rooms;
         }
         [HttpGet]
         public ActionResult Booking()
         {
+
             return View();
         }
         [HttpPost]
@@ -71,13 +69,16 @@ namespace BayviewHouse.Controllers
             }
             else return View("Index", booking);
         }
+
         public ActionResult ShowAll()
         {
-
-            List<Booking_Model> list = dao.ShowAllBookings();
-
-            return View(list);
+        
+            List<Booking_Model> bookingList = dao.ShowAll();
+            return View(bookingList);
         }
+
+
+
         private static int[] userInput; 
 
         //clears the input of potential formatting errors

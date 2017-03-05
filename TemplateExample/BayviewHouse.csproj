@@ -134,12 +134,13 @@
     <Content Include="Scripts\jquery-ui.structure.min.css" />
     <Content Include="Scripts\jquery-ui.theme.css" />
     <Content Include="Scripts\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Web.config" />
     <Content Include="contactResult.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="cardValidator.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\SitemapController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
@@ -195,9 +197,12 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\Status.cshtml" />
     <Content Include="Views\Contact\Comments.cshtml" />
-    <Content Include="Views\Contact\Feedback.cshtml" />
-    <Content Include="Views\Contact\Bookings.cshtml" />
-    <Content Include="Views\Booking\Booking.cshtml" />
+    <Content Include="Views\Contact\Feedback.cshtml">
+      <BrowseToURL>~/Contact/ShowAll</BrowseToURL>
+    </Content>
+    <Content Include="Views\Booking\ShowAll.cshtml" />
+    <Content Include="Views\Tours\ShowAll.cshtml" />
+    <Content Include="Views\Rooms\ShowAllRooms.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

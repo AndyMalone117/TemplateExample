@@ -10,6 +10,7 @@ using static BayviewHouse.Controllers.BookingController;
 
 namespace BayviewHouse.Models
 {
+  
     public class Booking_Model
     {
         [Display(Name = "Booking ID")]
@@ -25,16 +26,17 @@ namespace BayviewHouse.Models
         public string RoomName { get; set; }
 
         [Display(Name = "Arrival Date")]
+        [Required(ErrorMessage ="Arrival Date Required")]
         [DataType(DataType.Date)]
         public DateTime? ArrivalDate { get; set; }
 
         [Display(Name = "Departure Date")]
+        [Required(ErrorMessage ="Departure Date Required")]
         [DataType(DataType.Date)]
         public DateTime? DepartureDate { get; set; }
 
         [Display(Name = "Card Holder Name")]
         [Required(ErrorMessage ="Card Holder Name Required")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Invalid Card Holder Name")]
         public string CardHolderName { get; set; }
 
         [Display(Name = "Card Type")]
@@ -43,10 +45,10 @@ namespace BayviewHouse.Models
 
         [Display(Name = "Card Number")]
         [Required(ErrorMessage ="Card Number Required")]
-        [RegularExpression(@"^\d{16}$", ErrorMessage = "Invalid Card Number")]
         public string CreditCardNumber { get; set; }
 
         [Display(Name = "Expiry Date")]
+        [Required(ErrorMessage ="Card Expiry Date Required")]
         [DataType(DataType.Date)]
         public DateTime ExpiryDate { get; set; }
 

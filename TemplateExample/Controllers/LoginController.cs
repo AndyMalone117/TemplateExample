@@ -25,7 +25,8 @@ namespace BayviewHouse.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return View("../Home/Index");
+            //return View("../Home/Index");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -37,7 +38,7 @@ namespace BayviewHouse.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-
+            Session["Name"] = null;
             if (ModelState.IsValid)
             {
 
@@ -52,6 +53,7 @@ namespace BayviewHouse.Controllers
                     Session["Name"] = "Management";
                     return RedirectToAction("Index", "Staff");
                 }
+
                 else if(model.UserRole == Role.Customer)
                 {
                     Customer_Model customer = new Customer_Model();
@@ -61,25 +63,22 @@ namespace BayviewHouse.Controllers
                     string firstName = dao.CheckLogin(customer);
 
                     Session.Add("Name", customer.FirstName);
-                    Session.Add("Email", customer.Email);                    
-
+                    Session.Add("Email", customer.Email);
                     return RedirectToAction("Index", "Booking");
-
                 }
 
                 if (Session["Name"] != null)
-                    return View("../Home/Index");
+                    return View("Index", "Login");
 
                 else
                 {
                     ViewData["Error"] = "Error: " + dao.message;
                     return View("Error");
                 }
-
             }
             else
             {
-                return View("Index", model);
+                return View("Login", model);
             }
         }
     }

@@ -9,12 +9,11 @@ namespace BayviewHouse.Controllers
 {
     public class ToursController : Controller
     {
-         DAO dao;
+         DAO dao = new DAO();
         // GET: Tours
         public ActionResult Index()
         {
             ViewData["TourArea"] = GetTourTitles();
-            ViewData["PricePerPerson"] = GetTourPrices();
             return View();
         }
         private List<Tour_Model> GetTours()
@@ -36,16 +35,35 @@ namespace BayviewHouse.Controllers
 
             return tourTitles;
         }
-        private List<string> GetTourPrices()
+        [HttpGet]
+        public ActionResult AddCustomerTour()
         {
-            List<string> tourPrices = new List<string>();
-            List<Tour_Model> prices = GetTours();
-            foreach (Tour_Model c in prices)
-            {
-                tourPrices.Add(c.PricePerPerson.ToString());
-            }
 
-            return tourPrices;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCustomerTour(CustomerTour_Model customerTour)
+        {
+            int count = 0;
+            if (ModelState.IsValid)
+            {
+                count = dao.InsertCustomerTour(customerTour);
+                if (count == 1)
+                    ViewData["message"] = "Record inserted successfully";
+                else
+                    ViewData["message"] = dao.message;
+                return View("Index");
+            }
+            else return View("Index", customerTour);
+        }
+        public ActionResult ShowAll()
+        {
+            //List<Booking_Model> bookingList = new List<Booking_Model>();
+            dao = new DAO();
+            List<Tour_Model> toursList = dao.ShowAllTours();
+            return View(toursList);
         }
     }
+
+
 }

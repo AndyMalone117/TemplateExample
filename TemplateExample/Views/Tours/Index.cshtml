@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-</div>
+
 <div id="page_super_top">
     <div id="page_top">
         <a href="#content"><img class="scroll" src="images/scroll.png" alt="scroll"></a>
@@ -20,28 +20,32 @@
         </div>
     </div>
 </div>
+    @ViewData["message"]
+    @TempData["Message"]
 <div id="content">
     <hr>
     <h2 class="about_top">Book A Tour</h2>
     <form class="form1">
-        @using (Html.BeginForm("Tours", "Tours", FormMethod.Post)) { }
+        @using (Html.BeginForm("AddCustomerTour", "Tours", FormMethod.Post))
+        {
         @Html.ValidationSummary();
-
         <fieldset>
             <legend>Book a tour</legend>
             <div id="datecheck">
-                @Html.LabelFor(c => c.TourName)<br />
-                @Html.DropDownListFor(c => c.TourName, new SelectList((List<string>)@ViewData["TourArea"]))<br />
-                @Html.LabelFor(c => c.NumberOfPeople)<br />
-                @Html.TextBoxFor(c => c.NumberOfPeople)<br />
-                @Html.LabelFor(c => c.PricePerPerson)<br />
-                @Html.DropDownListFor(c => c.PricePerPerson, new SelectList((List<string>)ViewData["PricePerPerson"]))<br/>
+                @Html.LabelFor(c => c.Email)<br/>
+                @Html.TextBoxFor(c => c.Email)<br />
+                @Html.LabelFor(c => c.TourArea)<br />
+                @Html.DropDownListFor(c => c.TourArea, new SelectList((List<string>)@ViewData["TourArea"]))<br />
                 @Html.LabelFor(c => c.DateOfTour)<br />
-                @Html.TextBoxFor(c => c.DateOfTour)<br />
+                @Html.EditorFor(c => c.DateOfTour)<br />
+                @Html.LabelFor(c => c.NumberOfPeople)<br />
+                @Html.DropDownListFor(c => c.NumberOfPeople, new SelectList(new[] { "1", "2", "3", "4" }))<br />
+
                 <input id="Submit1" type="submit" value="Add" />
             </div>
 
         </fieldset>
+        }
     </form>
     <hr>
     <h2 class="about_top">Tours On Offer</h2>

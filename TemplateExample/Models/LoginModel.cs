@@ -20,4 +20,5 @@ namespace BayviewHouse.Models
 
         public Role UserRole { get; set; }  
     }
+
 }

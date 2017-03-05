@@ -6,9 +6,16 @@
    border-style:solid;
    border-spacing:0;
    border-width:2px;
-
-   
+ 
 }
+
+.table{
+   margin-left:1em;
+   margin-bottom:10em;
+   font-family:Tahoma;
+  font-size:0.9em;
+}
+
 .feedbackTable td{
    border-style:solid;
     border-width:1px;
