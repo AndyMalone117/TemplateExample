@@ -19,7 +19,6 @@ namespace BayviewHouse.Models
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBCon"].ConnectionString);
         }
 
-
         public int InsertCustomerTour(CustomerTour_Model customerTour)
         {
             Connection();
@@ -48,8 +47,9 @@ namespace BayviewHouse.Models
             return count;
 
         }
+        #endregion
 
-#region booking
+        #region booking
         public int InsertBooking(Booking_Model booking)
         {
             Connection();

@@ -43,22 +43,38 @@ namespace BayviewHouse.Controllers
             string userCardInput = booking.CreditCardNumber;
 
             int count = 0;
-            if (ModelState.IsValid && cardValidate(booking.CreditCardNumber.ToString()) == true)
+            if (ModelState.IsValid == true)
             {
-                count = dao.InsertBooking(booking);
-                if (count == 1)
+                if (cardValidate(booking.CreditCardNumber.ToString()) == true)
                 {
-                    TempData["Message"] = "Booking Confirmed";
-                    return RedirectToAction("Index");
+
+                    count = dao.InsertBooking(booking);
+                    if (count == 1)
+                    {
+                        TempData["Message"] = "Booking Confirmed";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        
+                        ViewData["message"] = dao.message;
+                    }
+                    return View("Index");
                 }
                 else
                 {
-                    ViewData["message"] = dao.message;
+                    TempData["Message"] = "Invalid Card Number";
                 }
                 return View("Index");
 
             }
             else return View("Index", booking);
+        }
+
+        public ActionResult SubmitPage()
+        {
+            ViewBag.PopupValue = "Booking confirmed";
+            return View();
         }
 
         public ActionResult ShowAll()

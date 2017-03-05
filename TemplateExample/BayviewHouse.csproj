@@ -203,7 +203,7 @@
     <Content Include="Views\Booking\ShowAll.cshtml" />
     <Content Include="Views\Tours\ShowAll.cshtml" />
     <Content Include="Views\Rooms\ShowAllRooms.cshtml" />
-    <Content Include="Views\Tours\ShowAllToursBooked.cshtml" />
+    <Content Include="Views\Booking\SubmitPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
