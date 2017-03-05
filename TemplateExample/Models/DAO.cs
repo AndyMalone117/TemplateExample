@@ -281,6 +281,8 @@ namespace BayviewHouse.Models
                 con.Close();
             }
             return c.FirstName;
+
+
         }
         public int InsertCustomer(Customer_Model c)
         {

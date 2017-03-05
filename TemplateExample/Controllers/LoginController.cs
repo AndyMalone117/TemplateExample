@@ -38,7 +38,7 @@ namespace BayviewHouse.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-
+            Session["Name"] = null;
             if (ModelState.IsValid)
             {
 
@@ -53,6 +53,7 @@ namespace BayviewHouse.Controllers
                     Session["Name"] = "Management";
                     return RedirectToAction("Index", "Staff");
                 }
+
                 else if(model.UserRole == Role.Customer)
                 {
                     Customer_Model customer = new Customer_Model();
@@ -63,24 +64,21 @@ namespace BayviewHouse.Controllers
 
                     Session.Add("Name", customer.FirstName);
                     Session.Add("Email", customer.Email);
-                    Session["Name"] = "Management";
                     return RedirectToAction("Index", "Booking");
-
                 }
 
                 if (Session["Name"] != null)
-                    return View("../Home/Index");
+                    return View("Index", "Login");
 
                 else
                 {
                     ViewData["Error"] = "Error: " + dao.message;
                     return View("Error");
                 }
-
             }
             else
             {
-                return View("Index", model);
+                return View("Login", model);
             }
         }
     }
