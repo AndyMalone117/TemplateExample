@@ -18,14 +18,16 @@ namespace BayviewHouse.Models
         {
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBCon"].ConnectionString);
         }
+
+
         public int InsertCustomerTour(CustomerTour_Model customerTour)
         {
             Connection();
             int count = 0;
             SqlCommand cmd = new SqlCommand("uspInsertIntoCustomerTour", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Email", customerTour.Email);
             cmd.Parameters.AddWithValue("@TourArea", customerTour.TourArea);
+            cmd.Parameters.AddWithValue("@Email", customerTour.Email);
             cmd.Parameters.AddWithValue("@DateOfTour", customerTour.DateOfTour);
             cmd.Parameters.AddWithValue("@NumberOfPeople", customerTour.NumberOfPeople);
             try
@@ -198,11 +200,11 @@ namespace BayviewHouse.Models
                 while (reader.Read())
                 {
                     Tour_Model tours = new Tour_Model();
-                    tours.TourID = int.Parse(reader["TourID"].ToString());
+                    //tours.TourID = int.Parse(reader["TourID"].ToString());
                     tours.CompanyID = int.Parse(reader["CompanyID"].ToString());
                     tours.TourArea = reader["TourArea"].ToString();
                     tours.TimeDurationMins = int.Parse(reader["TimeDurationMins"].ToString());
-                    tours.PricePerPerson = decimal.Parse(reader["PricePerPerson"].ToString());
+                    tours.PricePerPerson = decimal.Parse(reader["Price"].ToString());
 
                     toursList.Add(tours);
                 }
