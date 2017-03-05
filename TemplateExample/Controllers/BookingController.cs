@@ -56,6 +56,7 @@ namespace BayviewHouse.Controllers
                     }
                     else
                     {
+                        
                         ViewData["message"] = dao.message;
                     }
                     return View("Index");
@@ -68,6 +69,12 @@ namespace BayviewHouse.Controllers
 
             }
             else return View("Index", booking);
+        }
+
+        public ActionResult SubmitPage()
+        {
+            ViewBag.PopupValue = "Booking confirmed";
+            return View();
         }
 
         public ActionResult ShowAll()
