@@ -37,6 +37,7 @@ namespace BayviewHouse.Models
 
         [Display(Name = "Card Holder Name")]
         [Required(ErrorMessage ="Card Holder Name Required")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Invalid Card Holder Name")]
         public string CardHolderName { get; set; }
 
         [Display(Name = "Card Type")]
@@ -45,6 +46,7 @@ namespace BayviewHouse.Models
 
         [Display(Name = "Card Number")]
         [Required(ErrorMessage ="Card Number Required")]
+        [RegularExpression(@"^\d{16}$", ErrorMessage = "Invalid Card Number")]
         public string CreditCardNumber { get; set; }
 
         [Display(Name = "Expiry Date")]

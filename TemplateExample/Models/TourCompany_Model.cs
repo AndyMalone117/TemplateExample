@@ -13,15 +13,5 @@ namespace BayviewHouse.Models
         public string Email { get; set; }
         public string Phone { get; set; }
 
-        public TourCompany_Model() { }
-
-        public TourCompany_Model(int companyID, string companyName, string cAddress, string email, string phone)
-        {
-            CompanyID = companyID;
-            CompanyName = companyName;
-            CAddress = cAddress;
-            Email = email;
-            Phone = phone;
-        }
     }
 }
