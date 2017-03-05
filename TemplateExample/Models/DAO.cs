@@ -47,7 +47,6 @@ namespace BayviewHouse.Models
             return count;
 
         }
-        #endregion
 
         #region booking
         public int InsertBooking(Booking_Model booking)

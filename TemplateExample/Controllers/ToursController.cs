@@ -44,7 +44,7 @@ namespace BayviewHouse.Controllers
 
 
         [HttpPost]
-        public ActionResult AddCustomerTour(CustomerTour_Model customerTour)
+        public ActionResult AddCustomerTour(CustomerTour_Model customerTour) { 
 
             ViewData["TourArea"] = GetTourTitles();
             

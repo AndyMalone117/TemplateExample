@@ -14,4 +14,5 @@ namespace BayviewHouse.Models
         public string Phone { get; set; }
 
     }
+
 }
