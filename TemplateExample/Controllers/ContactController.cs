@@ -92,9 +92,9 @@ namespace BayviewHouse.Controllers
                     model.Comments = row["comments"].ToString();
                     model.Stay = row["stayAgain"].ToString();
                     model.Recommend = row["recommend"].ToString();
-                    string istring = row["date"].ToString();
+                    //string istring = row["date"].ToString();
                     //model.Time = DateTime.ParseExact(istring, "dd-mmM-yyyy HH:mm:ss tt", null);
-                    model.Time = DateTime.ParseExact(istring, "D", null);
+                    //model.Time = DateTime.ParseExact(istring, "D", null);
                     
                     list.Add(model);
 

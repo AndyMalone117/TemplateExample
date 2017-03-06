@@ -126,6 +126,56 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Images\award1.png" />
+    <Content Include="Images\award2.jpg" />
+    <Content Include="Images\bathroom.jpg" />
+    <Content Include="Images\bay.jpg" />
+    <Content Include="Images\bayview.jpg" />
+    <Content Include="Images\beach.jpg" />
+    <Content Include="Images\bed.jpg" />
+    <Content Include="Images\bed3.jpg" />
+    <Content Include="Images\bedroom.jpg" />
+    <Content Include="Images\book.jpg" />
+    <Content Include="Images\breakfast.jpg" />
+    <Content Include="Images\city.jpg" />
+    <Content Include="Images\cliff.jpg" />
+    <Content Include="Images\cliffs_of_moher.jpg" />
+    <Content Include="Images\cottage.jpg" />
+    <Content Include="Images\cottage2.jpg" />
+    <Content Include="Images\CPlus1.png" />
+    <Content Include="Images\diamond_hill.jpg" />
+    <Content Include="Images\dogsbay.jpg" />
+    <Content Include="Images\eyre.jpg" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\family.jpg" />
+    <Content Include="Images\galwaybay.jpg" />
+    <Content Include="Images\googlemap.png" />
+    <Content Include="Images\gurteen.jpg" />
+    <Content Include="Images\house.jpg" />
+    <Content Include="Images\Java1.png" />
+    <Content Include="Images\logo.gif" />
+    <Content Include="Images\lounge.jpg" />
+    <Content Include="Images\Programming1.png" />
+    <Content Include="Images\pub.jpg" />
+    <Content Include="Images\Python1.png" />
+    <Content Include="Images\reception.jpg" />
+    <Content Include="Images\restaurant.jpg" />
+    <Content Include="Images\room.jpg" />
+    <Content Include="Images\salthill.jpg" />
+    <Content Include="Images\scroll.png" />
+    <Content Include="Images\shower.jpg" />
+    <Content Include="Images\singleroom.jpg" />
+    <Content Include="Images\surf.jpg" />
+    <Content Include="Images\surfing.jpg" />
+    <Content Include="Images\tours_aran.jpg" />
+    <Content Include="Images\tours_city.jpg" />
+    <Content Include="Images\tours_connemara.jpg" />
+    <Content Include="Images\tours_moher.jpg" />
+    <Content Include="Images\tripadvisor.png" />
+    <Content Include="Images\tripleroom.jpg" />
+    <Content Include="Images\twitter.jpg" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\walk.jpg" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
@@ -205,6 +255,10 @@
     <Content Include="Views\Tours\ShowAll.cshtml" />
     <Content Include="Views\Rooms\ShowAllRooms.cshtml" />
     <Content Include="Views\Booking\SubmitPage.cshtml" />
+    <None Include="Properties\PublishProfiles\bayviewhouse - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\bayviewhouse - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\bayviewhouse - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\bayviewhouse - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -212,9 +266,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
