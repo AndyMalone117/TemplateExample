@@ -18,11 +18,14 @@
         </div>
     </div>
 </div>
-    @ViewData["message"]
-    @TempData["Message"]
+
 <div id="content">
     <hr>
     <h2 class="about_top">Book A Tour</h2>
+    <div class="table">
+        @ViewData["message"]
+        @TempData["Message"]
+    </div>
    
         @using (Html.BeginForm("AddCustomerTour", "Tours", FormMethod.Post))
         {

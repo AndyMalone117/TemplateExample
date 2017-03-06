@@ -53,7 +53,7 @@ namespace BayviewHouse.Controllers
             {
                 count = dao.InsertCustomerTour(customerTour);
                 if (count == 1)
-                    ViewData["message"] = "Record inserted successfully";
+                    ViewData["message"] = "Tour Booking has been confirmed";
                 else
                     ViewData["message"] = dao.message;
                 return View("Index");
